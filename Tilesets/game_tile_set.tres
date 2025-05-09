@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dfr7v1u8xj53d"]
 
-[ext_resource type="Texture2D" uid="uid://c1mx4gbjt3k7k" path="res://assets/game/tilesets/Tileset_16x16_2.png" id="1_m70i2"]
+[ext_resource type="Texture2D" uid="uid://bykmgi3mxp7kh" path="res://assets/game/tilesets/Tileset_16x16_16.png" id="1_cbdxd"]
 [ext_resource type="Texture2D" uid="uid://cy4dhtqkb55pu" path="res://assets/game/Interiors_free_16x16.png" id="2_cbdxd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbdxd"]
-texture = ExtResource("1_m70i2")
+texture = ExtResource("1_cbdxd")
 2:6/0 = 0
 3:6/0 = 0
 4:6/0 = 0
@@ -1507,5 +1507,6 @@ texture = ExtResource("2_cbdxd")
 5:6/0 = 0
 
 [resource]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cbdxd")
 sources/1 = SubResource("TileSetAtlasSource_hu6sp")
