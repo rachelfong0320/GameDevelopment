@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://n7ebir8h05rt"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://n7ebir8h05rt"]
 
 [ext_resource type="Texture2D" uid="uid://c1mx4gbjt3k7k" path="res://assets/game/tilesets/Tileset_16x16_2.png" id="1_7tasb"]
 [ext_resource type="Texture2D" uid="uid://bykmgi3mxp7kh" path="res://assets/game/tilesets/Tileset_16x16_16.png" id="1_juxxr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://eyrr01aq8fi5" path="res://assets/game/tilesets/Tileset_16x16_9.png" id="4_06qnv"]
 [ext_resource type="PackedScene" uid="uid://cbl4dv6nk73oy" path="res://scenes/houses/door.tscn" id="5_06qnv"]
 [ext_resource type="Texture2D" uid="uid://okc4p81g2igd" path="res://assets/game/tilesets/Room_Builder_free_16x16.png" id="6_bo5jy"]
+[ext_resource type="Texture2D" uid="uid://jbu82o6tb34s" path="res://assets/game/tilesets/Tilesets/Grass.png" id="7_nt17a"]
+[ext_resource type="Texture2D" uid="uid://dxtk61u6hy1nh" path="res://assets/game/tilesets/Tilesets/Tilled_Dirt.png" id="8_e5tts"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo5jy"]
 texture = ExtResource("1_7tasb")
@@ -540,6 +542,12 @@ texture = ExtResource("6_bo5jy")
 1:17/0 = 0
 8:17/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfobp"]
+texture = ExtResource("7_nt17a")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bpnm8"]
+texture = ExtResource("8_e5tts")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7tasb")
@@ -548,3 +556,5 @@ sources/0 = SubResource("TileSetAtlasSource_bo5jy")
 sources/3 = SubResource("TileSetAtlasSource_fd7hp")
 sources/4 = SubResource("TileSetScenesCollectionSource_bo5jy")
 sources/5 = SubResource("TileSetAtlasSource_nt17a")
+sources/6 = SubResource("TileSetAtlasSource_bfobp")
+sources/7 = SubResource("TileSetAtlasSource_bpnm8")
