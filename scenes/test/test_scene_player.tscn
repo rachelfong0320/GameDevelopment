@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://ctjtlqvpchkoi"]
+[gd_scene load_steps=17 format=4 uid="uid://cmwp7al3qphy4"]
 
 [ext_resource type="Texture2D" uid="uid://bykmgi3mxp7kh" path="res://assets/game/tilesets/Tileset_16x16_16.png" id="1_np1fs"]
 [ext_resource type="Texture2D" uid="uid://c1mx4gbjt3k7k" path="res://assets/game/tilesets/Tileset_16x16_2.png" id="2_c5vxv"]
@@ -3163,7 +3163,7 @@ texture = ExtResource("4_4xrc2")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_q8rd1")
 
-[node name="TestSceneHouseTilemap" type="Node2D"]
+[node name="TestSceneTilemap" type="Node2D"]
 
 [node name="GameTileMap" type="Node2D" parent="."]
 position = Vector2(1, 125)
