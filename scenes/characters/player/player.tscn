@@ -1,11 +1,11 @@
 [gd_scene load_steps=93 format=3 uid="uid://coq2um3vuc37o"]
 
 [ext_resource type="Texture2D" uid="uid://d00pdgy8f2ltt" path="res://assets/game/characters/Characters_free/Adam_idle_anim_16x16.png" id="1_hss88"]
-[ext_resource type="Script" uid="uid://cpc8te34rmsbk" path="res://scenes/characters/player/player.gd" id="1_xuses"]
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_xuses"]
 [ext_resource type="Texture2D" uid="uid://bsit2456gqcc1" path="res://assets/game/characters/Characters_free/Adam_run_16x16.png" id="2_qd3e3"]
 [ext_resource type="Texture2D" uid="uid://dvbi41du0drjm" path="res://assets/game/characters/Characters_free/Adam_sit2_16x16.png" id="3_6avc5"]
 [ext_resource type="Texture2D" uid="uid://dev13plj5yeef" path="res://assets/game/characters/Characters_free/Adam_phone_16x16.png" id="4_mk55u"]
-[ext_resource type="Script" uid="uid://s3curtljk781" path="res://scripts/state_machine/node_state_machine.gd" id="5_6avc5"]
+[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="5_6avc5"]
 [ext_resource type="Script" uid="uid://cq4vy00cgwgit" path="res://scenes/characters/player/idle_state.gd" id="6_mk55u"]
 [ext_resource type="Script" uid="uid://d1loj7cc0yauu" path="res://scenes/characters/player/run_state.gd" id="7_mk55u"]
 [ext_resource type="Script" uid="uid://s35ve3gh6gyj" path="res://scenes/characters/player/taking.gd" id="9_42irl"]
@@ -576,7 +576,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ew6mj")
 }],
-"loop": true,
+"loop": false,
 "name": &"take_back",
 "speed": 5.0
 }, {
@@ -593,7 +593,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ra07b")
 }],
-"loop": true,
+"loop": false,
 "name": &"take_front",
 "speed": 2.0
 }, {
@@ -604,7 +604,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2el0t")
 }],
-"loop": true,
+"loop": false,
 "name": &"take_left",
 "speed": 5.0
 }, {
@@ -650,7 +650,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vjq2h")
 }],
-"loop": true,
+"loop": false,
 "name": &"take_right",
 "speed": 5.0
 }]
@@ -664,9 +664,8 @@ script = ExtResource("1_xuses")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sfvi3")
-animation = &"take_back"
+animation = &"take_right"
 autoplay = "idle_front"
-frame_progress = 0.382824
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -686,5 +685,7 @@ script = ExtResource("7_mk55u")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Taking" type="Node" parent="StateMachine"]
+[node name="Taking" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("9_42irl")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")

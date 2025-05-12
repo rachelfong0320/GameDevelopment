@@ -18,3 +18,7 @@ func on_interactable_deactivated() -> void:
 	animated_sprite_2d.play("close_door")
 	collision_layer = 1
 	print("deactivated")
+
+
+func _on_interactable_component_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
