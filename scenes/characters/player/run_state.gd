@@ -8,6 +8,11 @@ func _on_process(_delta : float) -> void:
 	pass
 
 
+
+
+
+
+
 func _on_physics_process(_delta : float) -> void:
 	var direction: Vector2 = GameInputEvents.movement_input()
 	
