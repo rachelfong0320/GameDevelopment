@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://2b6r85guu57p"]
+
+[ext_resource type="Texture2D" uid="uid://d1rkv6ulubvra" path="res://assets/game/objects/MV Icons Consoles/cooked-chicken-leg.png" id="1_grfon"]
+[ext_resource type="Script" uid="uid://bwkkvw83x8w36" path="res://scenes/objects/food/chicken_leg.gd" id="2_jvx2y"]
+[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_eifu5"]
+[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="4_esiax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esiax"]
+atlas = ExtResource("1_grfon")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esiax"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvx2y"]
+radius = 3.33333
+
+[node name="ChickenLeg" type="Sprite2D"]
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.375)
+texture = SubResource("AtlasTexture_esiax")
+script = ExtResource("2_jvx2y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_esiax")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_eifu5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_jvx2y")
+debug_color = Color(0.865008, 0.128752, 0.805882, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_esiax")]
+position = Vector2(-2, -2.66667)

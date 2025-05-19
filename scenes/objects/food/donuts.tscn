@@ -15,7 +15,6 @@ radius = 3.16228
 radius = 4.12311
 
 [node name="Donuts" type="Sprite2D"]
-position = Vector2(0, -11)
 texture = SubResource("AtlasTexture_pnbio")
 script = ExtResource("2_nbi4b")
 
