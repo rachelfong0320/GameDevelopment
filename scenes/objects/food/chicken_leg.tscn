@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://2b6r85guu57p"]
+[gd_scene load_steps=10 format=3 uid="uid://2b6r85guu57p"]
 
 [ext_resource type="Texture2D" uid="uid://d1rkv6ulubvra" path="res://assets/game/objects/MV Icons Consoles/cooked-chicken-leg.png" id="1_grfon"]
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_jvx2y"]
 [ext_resource type="Script" uid="uid://bwkkvw83x8w36" path="res://scenes/objects/food/chicken_leg.gd" id="2_jvx2y"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_eifu5"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="4_esiax"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvx2y"]
+shader = ExtResource("1_jvx2y")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esiax"]
 atlas = ExtResource("1_grfon")
@@ -15,6 +21,7 @@ radius = 4.0
 radius = 3.33333
 
 [node name="ChickenLeg" type="Sprite2D"]
+material = SubResource("ShaderMaterial_jvx2y")
 position = Vector2(0, -2)
 scale = Vector2(0.5, 0.375)
 texture = SubResource("AtlasTexture_esiax")
