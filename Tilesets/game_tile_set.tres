@@ -1,10 +1,12 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dfr7v1u8xj53d"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dfr7v1u8xj53d"]
 
 [ext_resource type="Texture2D" uid="uid://c1mx4gbjt3k7k" path="res://assets/game/tilesets/Tileset_16x16_2.png" id="1_m70i2"]
 [ext_resource type="Texture2D" uid="uid://cy4dhtqkb55pu" path="res://assets/game/Interiors_free_16x16.png" id="2_cbdxd"]
 [ext_resource type="Texture2D" uid="uid://dxtk61u6hy1nh" path="res://assets/game/tilesets/Tilesets/Tilled_Dirt.png" id="3_hu6sp"]
 [ext_resource type="Texture2D" uid="uid://jbu82o6tb34s" path="res://assets/game/tilesets/Tilesets/Grass.png" id="4_xwv23"]
 [ext_resource type="PackedScene" uid="uid://bqddv7s28x02d" path="res://scenes/houses/large_house.tscn" id="5_0b0mn"]
+[ext_resource type="PackedScene" uid="uid://dm7e70xcp4lqf" path="res://scenes/objects/food/donuts.tscn" id="6_pi5w0"]
+[ext_resource type="PackedScene" uid="uid://2b6r85guu57p" path="res://scenes/objects/food/chicken_leg.tscn" id="7_ow828"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbdxd"]
 texture = ExtResource("1_m70i2")
@@ -1902,6 +1904,8 @@ texture = ExtResource("4_xwv23")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0b0mn"]
 scenes/1/scene = ExtResource("5_0b0mn")
+scenes/2/scene = ExtResource("6_pi5w0")
+scenes/3/scene = ExtResource("7_ow828")
 
 [resource]
 physics_layer_0/collision_layer = 1
