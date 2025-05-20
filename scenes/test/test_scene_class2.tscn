@@ -21,7 +21,7 @@ tile_map_data = PackedByteArray("AAAeADcAAwACAAIAAAAeADYAAwACAAEAAAAeADUAAwACAAE
 tile_set = ExtResource("1_ska2q")
 
 [node name="BlockB" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAgA=")
 tile_set = ExtResource("1_ska2q")
 
 [node name="SceneTrigger" type="Area2D" parent="GameTileMap"]

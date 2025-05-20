@@ -1903,7 +1903,7 @@ texture = ExtResource("4_xwv23")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ow828"]
 resource_name = "block B"
-scenes/1/scene = ExtResource("5_pi5w0")
+scenes/2/scene = ExtResource("5_pi5w0")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0b0mn"]
 scenes/1/scene = ExtResource("5_0b0mn")
