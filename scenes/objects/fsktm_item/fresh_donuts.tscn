@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0asc2cqusgbe"]
+[gd_scene load_steps=10 format=3 uid="uid://b0asc2cqusgbe"]
 
 [ext_resource type="Texture2D" uid="uid://bcive2xgs630p" path="res://assets/game/objects/MV Icons Consoles/fresh_food-removebg-preview.png" id="1_gqb0q"]
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_iuh1o"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="2_65vty"]
+[ext_resource type="Script" uid="uid://c3suo8hfl31t6" path="res://scenes/objects/fsktm_item/fresh_donuts.gd" id="2_iuh1o"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="3_iuh1o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymfhj"]
+shader = ExtResource("1_iuh1o")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymfhj"]
 atlas = ExtResource("1_gqb0q")
@@ -15,9 +22,11 @@ radius = 17.0294
 radius = 15.1327
 
 [node name="fresh_donuts" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ymfhj")
 position = Vector2(2.38419e-07, 0)
 scale = Vector2(0.305556, 0.308824)
 texture = SubResource("AtlasTexture_ymfhj")
+script = ExtResource("2_iuh1o")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_65vty")]
 tool = 2

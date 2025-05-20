@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://db8jpufa7tjof"]
+[gd_scene load_steps=10 format=3 uid="uid://db8jpufa7tjof"]
 
 [ext_resource type="Texture2D" uid="uid://bcive2xgs630p" path="res://assets/game/objects/MV Icons Consoles/fresh_food-removebg-preview.png" id="1_0thjb"]
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_pxf6a"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="2_4ip5r"]
+[ext_resource type="Script" uid="uid://bggmtklndc351" path="res://scenes/objects/fsktm_item/fresh_apple.gd" id="2_pxf6a"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_pxf6a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dvas"]
+shader = ExtResource("1_pxf6a")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dvas"]
 atlas = ExtResource("1_0thjb")
@@ -15,9 +22,11 @@ radius = 15.0333
 radius = 14.0
 
 [node name="fresh_apple" type="Sprite2D"]
+material = SubResource("ShaderMaterial_4dvas")
 position = Vector2(-5, -4.25)
 scale = Vector2(0.242424, 0.236111)
 texture = SubResource("AtlasTexture_4dvas")
+script = ExtResource("2_pxf6a")
 
 [node name="DamageComponent" parent="." instance=ExtResource("2_4ip5r")]
 

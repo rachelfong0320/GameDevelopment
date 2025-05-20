@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=4 uid="uid://darjcoei4qkxg"]
+[gd_scene load_steps=4 format=4 uid="uid://darjcoei4qkxg"]
 
-[ext_resource type="Script" uid="uid://nxyjj8obru58" path="res://scripts/globals/base_script.gd" id="1_rpw4s"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_ska2q"]
 [ext_resource type="Script" uid="uid://bqpe08lg2584m" path="res://scripts/globals/scene_trigger.gd" id="3_rpw4s"]
 
@@ -8,7 +7,6 @@
 size = Vector2(23, 30)
 
 [node name="Class2" type="Node2D"]
-script = ExtResource("1_rpw4s")
 
 [node name="GameTileMap" type="Node2D" parent="."]
 
@@ -21,13 +19,13 @@ tile_map_data = PackedByteArray("AAAeADcAAwACAAIAAAAeADYAAwACAAEAAAAeADUAAwACAAE
 tile_set = ExtResource("1_ska2q")
 
 [node name="BlockB" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAQA=")
 tile_set = ExtResource("1_ska2q")
 
 [node name="SceneTrigger" type="Area2D" parent="GameTileMap"]
 position = Vector2(1106, 279)
 collision_layer = 0
-collision_mask = 8
+collision_mask = 32
 script = ExtResource("3_rpw4s")
 connected_scene = "test_scene_class"
 metadata/_custom_type_script = "uid://bqpe08lg2584m"

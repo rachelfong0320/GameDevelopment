@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://jrpx3fjarivt"]
+[gd_scene load_steps=10 format=3 uid="uid://jrpx3fjarivt"]
 
 [ext_resource type="Texture2D" uid="uid://bcive2xgs630p" path="res://assets/game/objects/MV Icons Consoles/fresh_food-removebg-preview.png" id="1_0ed70"]
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_wbsqr"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="2_abqtt"]
+[ext_resource type="Script" uid="uid://dtnn4ixlm3a4p" path="res://scenes/objects/fsktm_item/fresh_coffee.gd" id="2_wbsqr"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_wbsqr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35n88"]
+shader = ExtResource("1_wbsqr")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35n88"]
 atlas = ExtResource("1_0ed70")
@@ -15,9 +22,11 @@ radius = 15.0333
 radius = 15.0333
 
 [node name="fresh_coffee" type="Sprite2D"]
+material = SubResource("ShaderMaterial_35n88")
 position = Vector2(-2.38419e-07, 0)
 scale = Vector2(0.222222, 0.220588)
 texture = SubResource("AtlasTexture_35n88")
+script = ExtResource("2_wbsqr")
 
 [node name="DamageComponent" parent="." instance=ExtResource("2_abqtt")]
 

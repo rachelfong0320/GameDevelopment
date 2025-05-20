@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctmvniiq80wla"]
+[gd_scene load_steps=10 format=3 uid="uid://ctmvniiq80wla"]
 
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_4kil7"]
 [ext_resource type="Texture2D" uid="uid://d2l5m47u8rddi" path="res://assets/game/objects/MV Icons Consoles/rotton_food-removebg-preview.png" id="1_f2gi5"]
-[ext_resource type="Script" uid="uid://1ixwxjsgksfw" path="res://scenes/components/hurt_component.gd" id="2_4kil7"]
+[ext_resource type="Script" uid="uid://dyfo4bbn5gbmb" path="res://scenes/objects/food/rotton_pizza.gd" id="2_f2gi5"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="3_4hmqm"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="4_yjfla"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hmqm"]
+shader = ExtResource("1_4kil7")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcok8"]
 atlas = ExtResource("1_f2gi5")
@@ -15,10 +21,11 @@ region = Rect2(144, 178, 36, 32)
 size = Vector2(36, 30)
 
 [node name="rotton_pizza" type="Sprite2D"]
+material = SubResource("ShaderMaterial_4hmqm")
 position = Vector2(-4.76837e-07, -1)
 scale = Vector2(0.277778, 0.28125)
 texture = SubResource("AtlasTexture_jcok8")
-script = ExtResource("2_4kil7")
+script = ExtResource("2_f2gi5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -29,6 +36,7 @@ shape = SubResource("CircleShape2D_g8h37")
 [node name="DamageComponent" parent="." instance=ExtResource("3_4hmqm")]
 
 [node name="HurtComponent" parent="." instance=ExtResource("4_yjfla")]
+tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(1, -2)

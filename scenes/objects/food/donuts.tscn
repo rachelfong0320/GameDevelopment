@@ -41,6 +41,7 @@ shape = SubResource("CircleShape2D_12nqs")
 
 [node name="HurtComponent" parent="." instance=ExtResource("3_o24uo")]
 material = SubResource("ShaderMaterial_o24uo")
+tool = 1
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, 3.8147e-06)

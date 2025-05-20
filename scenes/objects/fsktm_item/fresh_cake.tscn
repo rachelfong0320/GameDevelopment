@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjpgs5kwp5fwa"]
+[gd_scene load_steps=10 format=3 uid="uid://bjpgs5kwp5fwa"]
 
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_63ywv"]
 [ext_resource type="Texture2D" uid="uid://bcive2xgs630p" path="res://assets/game/objects/MV Icons Consoles/fresh_food-removebg-preview.png" id="1_cm5yd"]
+[ext_resource type="Script" uid="uid://bdq88lcy3aqyy" path="res://scenes/objects/fsktm_item/fresh_cake.gd" id="2_didh2"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="2_yehy8"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="3_didh2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syj21"]
+shader = ExtResource("1_63ywv")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy31v"]
 atlas = ExtResource("1_cm5yd")
@@ -15,9 +22,11 @@ radius = 13.1529
 radius = 19.0
 
 [node name="Fresh_Cake" type="Sprite2D"]
+material = SubResource("ShaderMaterial_syj21")
 position = Vector2(5.96046e-08, 5.96046e-08)
 scale = Vector2(0.175347, 0.171875)
 texture = SubResource("AtlasTexture_wy31v")
+script = ExtResource("2_didh2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

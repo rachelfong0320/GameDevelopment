@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://vo2hcwi2qpaf"]
+[gd_scene load_steps=10 format=3 uid="uid://vo2hcwi2qpaf"]
 
 [ext_resource type="Texture2D" uid="uid://bcive2xgs630p" path="res://assets/game/objects/MV Icons Consoles/fresh_food-removebg-preview.png" id="1_2i1ay"]
+[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_l5hix"]
+[ext_resource type="Script" uid="uid://boypkk0t30huw" path="res://scenes/objects/fsktm_item/fresh_pizza.gd" id="2_l5hix"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="2_p1niu"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_l5hix"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8h0o5"]
+shader = ExtResource("1_l5hix")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h0o5"]
 atlas = ExtResource("1_2i1ay")
@@ -14,9 +21,11 @@ region = Rect2(141, 180, 36, 28)
 size = Vector2(39, 26)
 
 [node name="fresh_pizza" type="Sprite2D"]
+material = SubResource("ShaderMaterial_8h0o5")
 position = Vector2(2.5, 1)
 scale = Vector2(0.25, 0.214286)
 texture = SubResource("AtlasTexture_8h0o5")
+script = ExtResource("2_l5hix")
 
 [node name="DamageComponent" parent="." instance=ExtResource("2_p1niu")]
 
