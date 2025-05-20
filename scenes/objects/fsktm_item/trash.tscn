@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxbwxlld1pork"]
+
+[ext_resource type="Texture2D" uid="uid://chwof8l02fntj" path="res://assets/game/objects/MV Icons Consoles/recycle_items.png" id="1_7gyvp"]
+[ext_resource type="Script" uid="uid://7ew7wdf21m7i" path="res://trash.gd" id="2_t82kb"]
+[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_716f7"]
+[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="4_mopq5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_716f7"]
+atlas = ExtResource("1_7gyvp")
+region = Rect2(96, 12, 54, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cegit"]
+size = Vector2(52, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2v01"]
+size = Vector2(89, 77)
+
+[node name="Trash" type="Sprite2D"]
+texture = SubResource("AtlasTexture_716f7")
+script = ExtResource("2_t82kb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_cegit")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_716f7")]
+tool = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_i2v01")
+debug_color = Color(0.877044, 0.238851, 0.618833, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_mopq5")]

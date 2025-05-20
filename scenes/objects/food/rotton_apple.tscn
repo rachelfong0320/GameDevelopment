@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci4wdcyv2acrm"]
+
+[ext_resource type="Texture2D" uid="uid://d2l5m47u8rddi" path="res://assets/game/objects/MV Icons Consoles/rotton_food-removebg-preview.png" id="1_6n7hf"]
+[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="2_xjwi0"]
+[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_bsqxu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7drxg"]
+atlas = ExtResource("1_6n7hf")
+region = Rect2(3, 2, 33, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ec04a"]
+radius = 15.1327
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3p5v"]
+radius = 17.0
+
+[node name="rotton_apple" type="Sprite2D"]
+position = Vector2(0.562501, 0.5)
+scale = Vector2(0.147727, 0.147059)
+texture = SubResource("AtlasTexture_7drxg")
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_xjwi0")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_bsqxu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_ec04a")
+debug_color = Color(0.922312, 0.149418, 0.582287, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_l3p5v")

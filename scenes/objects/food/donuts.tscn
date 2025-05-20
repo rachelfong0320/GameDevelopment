@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dm7e70xcp4lqf"]
 
-[ext_resource type="Texture2D" uid="uid://cje8c3psvdef4" path="res://assets/game/objects/MV Icons Consoles/cookie.png" id="1_e3ko3"]
 [ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_o24uo"]
 [ext_resource type="Script" uid="uid://xonpcqpj4tns" path="res://scenes/objects/food/donuts.gd" id="2_nbi4b"]
+[ext_resource type="Texture2D" uid="uid://d2l5m47u8rddi" path="res://assets/game/objects/MV Icons Consoles/rotton_food-removebg-preview.png" id="2_o24uo"]
 [ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_o24uo"]
 [ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="4_8v0r6"]
 
@@ -11,11 +11,12 @@ shader = ExtResource("1_o24uo")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnbio"]
-atlas = ExtResource("1_e3ko3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v0r6"]
+atlas = ExtResource("2_o24uo")
+region = Rect2(3, 108, 33, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12nqs"]
-radius = 3.16228
+radius = 13.8783
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o24uo"]
 shader = ExtResource("1_o24uo")
@@ -23,23 +24,28 @@ shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twfv5"]
-radius = 4.12311
+radius = 18.1143
 
 [node name="Donuts" type="Sprite2D"]
 material = SubResource("ShaderMaterial_8v0r6")
-texture = SubResource("AtlasTexture_pnbio")
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.227273, 0.233333)
+texture = SubResource("AtlasTexture_8v0r6")
 script = ExtResource("2_nbi4b")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3.8147e-06)
 shape = SubResource("CircleShape2D_12nqs")
 
 [node name="HurtComponent" parent="." instance=ExtResource("3_o24uo")]
 material = SubResource("ShaderMaterial_o24uo")
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 3.8147e-06)
 shape = SubResource("CircleShape2D_twfv5")
 debug_color = Color(0.859774, 0.000683649, 0.876242, 0.42)
 
 [node name="DamageComponent" parent="." instance=ExtResource("4_8v0r6")]
+position = Vector2(0, 4.29153e-06)

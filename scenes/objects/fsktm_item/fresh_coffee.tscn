@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://jrpx3fjarivt"]
+
+[ext_resource type="Texture2D" uid="uid://bcive2xgs630p" path="res://assets/game/objects/MV Icons Consoles/fresh_food-removebg-preview.png" id="1_0ed70"]
+[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="2_abqtt"]
+[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_wbsqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35n88"]
+atlas = ExtResource("1_0ed70")
+region = Rect2(141, 142, 36, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ksb8"]
+radius = 15.0333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q810f"]
+radius = 15.0333
+
+[node name="fresh_coffee" type="Sprite2D"]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.222222, 0.220588)
+texture = SubResource("AtlasTexture_35n88")
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_abqtt")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, -1)
+shape = SubResource("CircleShape2D_8ksb8")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_wbsqr")]
+tool = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_q810f")
+debug_color = Color(0.903027, 0.182157, 0.617915, 0.42)

@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctmvniiq80wla"]
+
+[ext_resource type="Texture2D" uid="uid://d2l5m47u8rddi" path="res://assets/game/objects/MV Icons Consoles/rotton_food-removebg-preview.png" id="1_f2gi5"]
+[ext_resource type="Script" uid="uid://1ixwxjsgksfw" path="res://scenes/components/hurt_component.gd" id="2_4kil7"]
+[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="3_4hmqm"]
+[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="4_yjfla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcok8"]
+atlas = ExtResource("1_f2gi5")
+region = Rect2(144, 178, 36, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8h37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hafr1"]
+size = Vector2(36, 30)
+
+[node name="rotton_pizza" type="Sprite2D"]
+position = Vector2(-4.76837e-07, -1)
+scale = Vector2(0.277778, 0.28125)
+texture = SubResource("AtlasTexture_jcok8")
+script = ExtResource("2_4kil7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -1)
+shape = SubResource("CircleShape2D_g8h37")
+
+[node name="DamageComponent" parent="." instance=ExtResource("3_4hmqm")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("4_yjfla")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_hafr1")
+debug_color = Color(0.92136, 0.129268, 0.611812, 0.42)
