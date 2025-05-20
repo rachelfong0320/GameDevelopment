@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://darjcoei4qkxg"]
+[gd_scene load_steps=3 format=4 uid="uid://darjcoei4qkxg"]
 
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_ska2q"]
 [ext_resource type="PackedScene" uid="uid://coq2um3vuc37o" path="res://scenes/characters/player/player.tscn" id="2_mwksy"]
-[ext_resource type="PackedScene" uid="uid://b1rgy0jr5ih00" path="res://scenes/houses/doorscene.tscn" id="2_rpw4s"]
 
 [node name="BlockA" type="Node2D"]
 
@@ -17,20 +16,7 @@ tile_map_data = PackedByteArray("AAAeADcAAwACAAIAAAAeADYAAwACAAEAAAAeADUAAwACAAE
 tile_set = ExtResource("1_ska2q")
 
 [node name="BlockB" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAQA=")
 tile_set = ExtResource("1_ska2q")
 
 [node name="Player" parent="." instance=ExtResource("2_mwksy")]
-
-[node name="Doors" type="Node" parent="."]
-
-[node name="Door_E" parent="Doors" instance=ExtResource("2_rpw4s")]
-position = Vector2(1254, 278)
-destination_level_tag = "test_scene_class"
-destination_door_tag = "W"
-spawn_direction = "left"
-
-[node name="Spawn location" parent="Doors/Door_E" index="1"]
-position = Vector2(-20, 1)
-
-[editable path="Doors/Door_E"]
