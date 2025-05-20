@@ -14,6 +14,10 @@ config/name="GameDev"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+scene_manager="*res://scripts/globals/scene_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
@@ -70,3 +74,4 @@ take={
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Interactable"
+2d_physics/layer_4="triggers"

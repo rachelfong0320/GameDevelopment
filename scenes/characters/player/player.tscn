@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bsit2456gqcc1" path="res://assets/game/characters/Characters_free/Adam_run_16x16.png" id="2_qd3e3"]
 [ext_resource type="Texture2D" uid="uid://dvbi41du0drjm" path="res://assets/game/characters/Characters_free/Adam_sit2_16x16.png" id="3_6avc5"]
 [ext_resource type="Texture2D" uid="uid://dev13plj5yeef" path="res://assets/game/characters/Characters_free/Adam_phone_16x16.png" id="4_mk55u"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="5_6avc5"]
+[ext_resource type="Script" uid="uid://s3curtljk781" path="res://scripts/state_machine/node_state_machine.gd" id="5_6avc5"]
 [ext_resource type="Script" uid="uid://cq4vy00cgwgit" path="res://scenes/characters/player/idle_state.gd" id="6_mk55u"]
 [ext_resource type="Script" uid="uid://d1loj7cc0yauu" path="res://scenes/characters/player/run_state.gd" id="7_mk55u"]
 [ext_resource type="Script" uid="uid://s35ve3gh6gyj" path="res://scenes/characters/player/taking.gd" id="9_42irl"]
@@ -659,7 +659,7 @@ animations = [{
 radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 10
 script = ExtResource("1_xuses")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
