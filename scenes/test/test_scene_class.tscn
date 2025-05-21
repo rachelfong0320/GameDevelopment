@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b0q7mn2p6co1n"]
+[gd_scene load_steps=13 format=4 uid="uid://b0q7mn2p6co1n"]
 
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_1yvk5"]
 [ext_resource type="Script" uid="uid://b6nmm8d6x4rph" path="res://scenes/test/test_scene_class.gd" id="1_qofvf"]
@@ -8,12 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://slkvvj52r3t" path="res://scenes/objects/rottenFood/rotten_apple.tscn" id="4_y7de3"]
 [ext_resource type="PackedScene" uid="uid://bfd6ivautom8b" path="res://scenes/objects/freshFood/fresh_ice_cream.tscn" id="5_winbj"]
 [ext_resource type="PackedScene" uid="uid://3lgobr2vypw5" path="res://scenes/objects/rottenFood/rotten_ice_cream.tscn" id="6_gr3uh"]
+[ext_resource type="PackedScene" uid="uid://bxt6bfdgqn8i" path="res://scenes/objects/freshFood/fresh_donut.tscn" id="7_jdo8a"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y7de3"]
 scenes/1/scene = ExtResource("3_8r7jf")
 scenes/2/scene = ExtResource("4_y7de3")
 scenes/3/scene = ExtResource("5_winbj")
 scenes/4/scene = ExtResource("6_gr3uh")
+scenes/5/scene = ExtResource("7_jdo8a")
 
 [sub_resource type="TileSet" id="TileSet_winbj"]
 sources/0 = SubResource("TileSetScenesCollectionSource_y7de3")
@@ -40,7 +42,8 @@ tile_map_data = PackedByteArray("AAAFAAMACQAAAAAAAQAuACkAAwACAAIAAAAuACgAAwACAAE
 tile_set = ExtResource("1_1yvk5")
 
 [node name="Food" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAARABYAAAAAAAAAAQATABYAAAAAAAAAAgAVABYAAAAAAAAAAwAWABYAAAAAAAAABAA=")
+position = Vector2(3, 0)
+tile_map_data = PackedByteArray("AAARABYAAAAAAAAAAQATABYAAAAAAAAAAgAVABYAAAAAAAAAAwAWABYAAAAAAAAABAAYABYAAAAAAAAABQA=")
 tile_set = SubResource("TileSet_winbj")
 
 [node name="SceneTrigger" parent="GameTileMap" instance=ExtResource("2_gh3yv")]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://bleh2ljpoagi0"]
+
+[ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_e41vb"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/game/objects/rotton_food-removebg-preview.png" id="2_lwyu6"]
+[ext_resource type="Script" uid="uid://06046lfqtt3e" path="res://rotton_donut.gd" id="3_udyyh"]
+[ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="4_uhtwb"]
+[ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="5_3jeqv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1b644"]
+shader = ExtResource("1_e41vb")
+shader_parameter/shake_intensity = 1.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3581p"]
+atlas = ExtResource("2_lwyu6")
+region = Rect2(0, 104, 36, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2ark"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2g4lg"]
+radius = 18.0
+
+[node name="rotton_donut" type="Sprite2D"]
+material = SubResource("ShaderMaterial_1b644")
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(0.166667, 0.194444)
+texture = SubResource("AtlasTexture_3581p")
+script = ExtResource("3_udyyh")
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_uhtwb")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_h2ark")
+
+[node name="HurtComponent" parent="." instance=ExtResource("5_3jeqv")]
+tool = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(5.72205e-06, 5.14286)
+shape = SubResource("CircleShape2D_2g4lg")
+debug_color = Color(0.90165, 0.000158254, 0.758814, 0.42)
