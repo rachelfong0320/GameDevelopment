@@ -660,7 +660,7 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djydg"]
-radius = 26.0192
+radius = 5.09902
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 34
@@ -679,7 +679,6 @@ shape = SubResource("CircleShape2D_ew6mj")
 [node name="HitComponent" parent="." instance=ExtResource("6_3xnwo")]
 
 [node name="HitComponentCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
-position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_djydg")
 debug_color = Color(0.887515, 0.170056, 0.694209, 0.42)
 
