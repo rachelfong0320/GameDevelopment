@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://coq2um3vuc37o"]
+[gd_scene load_steps=95 format=3 uid="uid://coq2um3vuc37o"]
 
 [ext_resource type="Texture2D" uid="uid://d00pdgy8f2ltt" path="res://assets/game/characters/Characters_free/Adam_idle_anim_16x16.png" id="1_hss88"]
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_xuses"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvbi41du0drjm" path="res://assets/game/characters/Characters_free/Adam_sit2_16x16.png" id="3_6avc5"]
 [ext_resource type="Texture2D" uid="uid://dev13plj5yeef" path="res://assets/game/characters/Characters_free/Adam_phone_16x16.png" id="4_mk55u"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="5_6avc5"]
+[ext_resource type="PackedScene" uid="uid://7y3xfgiggdrn" path="res://scenes/components/hit_component.tscn" id="6_3xnwo"]
 [ext_resource type="Script" uid="uid://cq4vy00cgwgit" path="res://scenes/characters/player/idle_state.gd" id="6_mk55u"]
 [ext_resource type="Script" uid="uid://d1loj7cc0yauu" path="res://scenes/characters/player/run_state.gd" id="7_mk55u"]
 [ext_resource type="Script" uid="uid://s35ve3gh6gyj" path="res://scenes/characters/player/taking.gd" id="9_42irl"]
@@ -655,20 +656,32 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_djydg"]
+radius = 21.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ew6mj"]
 radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 10
 script = ExtResource("1_xuses")
+current_tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sfvi3")
-animation = &"take_right"
+animation = &"take_front"
 autoplay = "idle_front"
 
+[node name="HitComponent" parent="." instance=ExtResource("6_3xnwo")]
+current_tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+position = Vector2(1, 24)
+shape = SubResource("CircleShape2D_djydg")
+debug_color = Color(8.18223e-07, 0.646242, 0.241754, 0.42)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_ew6mj")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -685,7 +698,8 @@ script = ExtResource("7_mk55u")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
-[node name="Taking" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Taking" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component_collision_shape")]
 script = ExtResource("9_42irl")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/CollisionShape2D")
