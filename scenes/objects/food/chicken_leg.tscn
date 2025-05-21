@@ -1,47 +1,20 @@
 [gd_scene load_steps=8 format=3 uid="uid://2b6r85guu57p"]
 
-<<<<<<< HEAD
-[ext_resource type="Shader" uid="uid://b234ypk2tix7p" path="res://scenes/objects/food/food_shake.gdshader" id="1_jvx2y"]
-[ext_resource type="Texture2D" uid="uid://d2l5m47u8rddi" path="res://assets/game/objects/MV Icons Consoles/rotton_food-removebg-preview.png" id="2_6pjxa"]
-[ext_resource type="Script" path="res://scenes/objects/food/chicken_leg.gd" id="2_jvx2y"]
-[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_eifu5"]
-[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="4_esiax"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvx2y"]
-shader = ExtResource("1_jvx2y")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/shake_speed = 20.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1i6bu"]
-atlas = ExtResource("2_6pjxa")
-region = Rect2(3, 72, 33, 30)
-=======
-[ext_resource type="Texture2D" uid="uid://d1rkv6ulubvra" path="res://assets/game/objects/MV Icons Consoles/cooked-chicken-leg.png" id="1_grfon"]
-[ext_resource type="Script" uid="uid://bwkkvw83x8w36" path="res://scenes/objects/food/chicken_leg.gd" id="2_jvx2y"]
-[ext_resource type="PackedScene" uid="uid://b1jxov60cqs64" path="res://scenes/components/hurt_component.tscn" id="3_eifu5"]
-[ext_resource type="PackedScene" uid="uid://d3mxegqqt5hnk" path="res://scenes/components/damage_component.tscn" id="4_esiax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esiax"]
 atlas = ExtResource("1_grfon")
->>>>>>> parent of 3815788 (Shaking effect of item)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esiax"]
-radius = 12.5714
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvx2y"]
-radius = 19.9416
+radius = 3.33333
 
-<<<<<<< HEAD
-[node name="rotton_cake" type="Sprite2D"]
-material = SubResource("ShaderMaterial_jvx2y")
-scale = Vector2(0.159091, 0.154167)
-texture = SubResource("AtlasTexture_1i6bu")
-=======
 [node name="ChickenLeg" type="Sprite2D"]
+material = SubResource("ShaderMaterial_jvx2y")
 position = Vector2(0, -2)
 scale = Vector2(0.5, 0.375)
 texture = SubResource("AtlasTexture_esiax")
->>>>>>> parent of 3815788 (Shaking effect of item)
 script = ExtResource("2_jvx2y")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

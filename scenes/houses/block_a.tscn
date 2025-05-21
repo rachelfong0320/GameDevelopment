@@ -1,30 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://dcam2pwy34xd8"]
+[gd_scene load_steps=3 format=4 uid="uid://dcam2pwy34xd8"]
 
 [ext_resource type="TileSet" uid="uid://n7ebir8h05rt" path="res://Tilesets/house_tile_set.tres" id="1_xfsnc"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="2_d2xx5"]
-[ext_resource type="PackedScene" uid="uid://dm7e70xcp4lqf" path="res://scenes/objects/food/donuts.tscn" id="3_srlcn"]
-[ext_resource type="PackedScene" uid="uid://2b6r85guu57p" path="res://scenes/objects/food/chicken_leg.tscn" id="4_wuuxg"]
-[ext_resource type="PackedScene" uid="uid://ci4wdcyv2acrm" path="res://scenes/objects/food/rotton_apple.tscn" id="5_wuuxg"]
-[ext_resource type="PackedScene" uid="uid://db8jpufa7tjof" path="res://scenes/objects/fsktm_item/fresh_apple.tscn" id="6_c3ixy"]
-[ext_resource type="PackedScene" uid="uid://jrpx3fjarivt" path="res://scenes/objects/fsktm_item/fresh_coffee.tscn" id="7_h8cj4"]
-[ext_resource type="PackedScene" uid="uid://b6loye17x0nue" path="res://scenes/objects/food/rotton_coffee.tscn" id="8_imj7j"]
-[ext_resource type="PackedScene" uid="uid://ctmvniiq80wla" path="res://scenes/objects/food/rotton_pizza.tscn" id="9_ipa22"]
-[ext_resource type="PackedScene" uid="uid://vo2hcwi2qpaf" path="res://scenes/objects/fsktm_item/fresh_pizza.tscn" id="10_0puxi"]
-[ext_resource type="PackedScene" uid="uid://b0asc2cqusgbe" path="res://scenes/objects/fsktm_item/fresh_donuts.tscn" id="11_5nxvl"]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c3ixy"]
-scenes/1/scene = ExtResource("3_srlcn")
-scenes/2/scene = ExtResource("4_wuuxg")
-scenes/3/scene = ExtResource("5_wuuxg")
-scenes/4/scene = ExtResource("6_c3ixy")
-scenes/5/scene = ExtResource("7_h8cj4")
-scenes/6/scene = ExtResource("8_imj7j")
-scenes/7/scene = ExtResource("9_ipa22")
-scenes/8/scene = ExtResource("10_0puxi")
-scenes/9/scene = ExtResource("11_5nxvl")
-
-[sub_resource type="TileSet" id="TileSet_h8cj4"]
-sources/0 = SubResource("TileSetScenesCollectionSource_c3ixy")
 
 [node name="BlockA" type="Node2D"]
 
