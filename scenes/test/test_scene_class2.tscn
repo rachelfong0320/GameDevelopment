@@ -1,8 +1,33 @@
-[gd_scene load_steps=5 format=4 uid="uid://darjcoei4qkxg"]
+[gd_scene load_steps=17 format=4 uid="uid://darjcoei4qkxg"]
 
 [ext_resource type="Script" uid="uid://nxyjj8obru58" path="res://scripts/globals/base_script.gd" id="1_rpw4s"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_ska2q"]
+[ext_resource type="PackedScene" uid="uid://bleh2ljpoagi0" path="res://scenes/objects/rottenFood/rotton_donut.tscn" id="3_a1756"]
 [ext_resource type="Script" uid="uid://bqpe08lg2584m" path="res://scripts/globals/scene_trigger.gd" id="3_rpw4s"]
+[ext_resource type="PackedScene" uid="uid://bfd6ivautom8b" path="res://scenes/objects/freshFood/fresh_ice_cream.tscn" id="4_82j7b"]
+[ext_resource type="PackedScene" uid="uid://3lgobr2vypw5" path="res://scenes/objects/rottenFood/rotten_ice_cream.tscn" id="5_gm3sg"]
+[ext_resource type="PackedScene" uid="uid://daxrchfmphrmk" path="res://scenes/objects/rottenFood/rotten_coke.tscn" id="6_003au"]
+[ext_resource type="PackedScene" uid="uid://tpacy0msgeox" path="res://scenes/objects/rottenFood/rotten_burger.tscn" id="7_quhg7"]
+[ext_resource type="PackedScene" uid="uid://slkvvj52r3t" path="res://scenes/objects/rottenFood/rotten_apple.tscn" id="8_oj5f0"]
+[ext_resource type="PackedScene" uid="uid://ba3y141cth1r2" path="res://scenes/objects/freshFood/fresh_apple.tscn" id="9_7ynmp"]
+[ext_resource type="PackedScene" uid="uid://7xdb13th2sd4" path="res://scenes/objects/freshFood/fresh_burger.tscn" id="10_sywwi"]
+[ext_resource type="PackedScene" uid="uid://dmqyl7hiv6h6u" path="res://scenes/objects/freshFood/fresh_coke.tscn" id="11_hk02d"]
+[ext_resource type="PackedScene" uid="uid://bxt6bfdgqn8i" path="res://scenes/objects/freshFood/fresh_donut.tscn" id="12_g1xyo"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_anejm"]
+scenes/1/scene = ExtResource("3_a1756")
+scenes/2/scene = ExtResource("5_gm3sg")
+scenes/3/scene = ExtResource("6_003au")
+scenes/4/scene = ExtResource("7_quhg7")
+scenes/5/scene = ExtResource("8_oj5f0")
+scenes/6/scene = ExtResource("9_7ynmp")
+scenes/7/scene = ExtResource("10_sywwi")
+scenes/8/scene = ExtResource("11_hk02d")
+scenes/9/scene = ExtResource("12_g1xyo")
+scenes/10/scene = ExtResource("4_82j7b")
+
+[sub_resource type="TileSet" id="TileSet_rihgl"]
+sources/0 = SubResource("TileSetScenesCollectionSource_anejm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpw4s"]
 size = Vector2(23, 30)
@@ -23,6 +48,10 @@ tile_set = ExtResource("1_ska2q")
 [node name="BlockB" type="TileMapLayer" parent="GameTileMap"]
 tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAgA=")
 tile_set = ExtResource("1_ska2q")
+
+[node name="Food" type="TileMapLayer" parent="GameTileMap"]
+tile_map_data = PackedByteArray("AAAWAAgAAAAAAAAAAQA0AAkAAAAAAAAAAQAnABIAAAAAAAAAAQAMABIAAAAAAAAAAQAnABYAAAAAAAAAAQANAC0AAAAAAAAAAQAVAC0AAAAAAAAAAQAFACcAAAAAAAAAAgAUACcAAAAAAAAAAgAcAB8AAAAAAAAAAgAlACIAAAAAAAAAAgArACIAAAAAAAAAAgBCACkAAAAAAAAAAgAPACcAAAAAAAAAAwAGABYAAAAAAAAAAwARABYAAAAAAAAAAwAkAB8AAAAAAAAABAAFABAAAAAAAAAABgARAA4AAAAAAAAABgArABYAAAAAAAAABgAcABcAAAAAAAAABgAXABcAAAAAAAAABgAXAB8AAAAAAAAABgAvAB8AAAAAAAAABgBCABoAAAAAAAAABgBCACAAAAAAAAAABgAzABYAAAAAAAAABgAXACMAAAAAAAAABwAuABAAAAAAAAAABwA0AA8AAAAAAAAABwA7ABcAAAAAAAAABwALABAAAAAAAAAABwAfAAgAAAAAAAAABwA6AAYAAAAAAAAABwBBAAsAAAAAAAAABwA5AAoAAAAAAAAACAAGAC8AAAAAAAAACAAEAC0AAAAAAAAACAANACsAAAAAAAAACQALACcAAAAAAAAACQAeAB8AAAAAAAAACQAcABsAAAAAAAAACQAMABgAAAAAAAAACQALABQAAAAAAAAACQANADEAAAAAAAAACgALAC8AAAAAAAAACgAVADEAAAAAAAAACgApABoAAAAAAAAACgA1AAYAAAAAAAAACgBBAAcAAAAAAAAACgA=")
+tile_set = SubResource("TileSet_rihgl")
 
 [node name="SceneTrigger" type="Area2D" parent="GameTileMap"]
 position = Vector2(1106, 279)
