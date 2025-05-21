@@ -23,8 +23,8 @@ radius = 18.0
 
 [node name="rotton_donut" type="Sprite2D"]
 material = SubResource("ShaderMaterial_1b644")
-position = Vector2(-9.53674e-07, 0)
-scale = Vector2(0.166667, 0.194444)
+position = Vector2(5.96046e-08, 5.96046e-08)
+scale = Vector2(0.222222, 0.236111)
 texture = SubResource("AtlasTexture_3581p")
 script = ExtResource("3_udyyh")
 
