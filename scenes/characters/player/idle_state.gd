@@ -26,7 +26,7 @@ func _on_next_transitions() -> void:
 	if GameInputEvents.is_movement_input():
 		transition.emit("Run")
 		
-	if (player.current_tool == DataTypes.Tools.CoffeeCup || player.current_tool == DataTypes.Tools.Donuts) && GameInputEvents.use_tool():
+	if (player.current_tool == DataTypes.Tools.freshFood || player.current_tool == DataTypes.Tools.rottenFood) && GameInputEvents.use_tool():
 		transition.emit("Taking")
 
 

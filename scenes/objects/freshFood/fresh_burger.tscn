@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://7xdb13th2sd4"]
+
+[ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_vhaud"]
+[ext_resource type="Texture2D" uid="uid://chkr6th86l48e" path="res://assets/game/objects/fresh_food-removebg-preview.png" id="2_6jwuo"]
+[ext_resource type="Script" uid="uid://dndrdfd3j3pmt" path="res://fresh_burger.gd" id="3_fnr2i"]
+[ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="4_ywcsq"]
+[ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="5_w300o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7abo"]
+shader = ExtResource("1_vhaud")
+shader_parameter/shake_intensity = 1.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrlfq"]
+atlas = ExtResource("2_6jwuo")
+region = Rect2(0, 36, 36, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c57vu"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rvp6"]
+radius = 16.0
+
+[node name="fresh_burger" type="Sprite2D"]
+material = SubResource("ShaderMaterial_d7abo")
+position = Vector2(1, 0)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("AtlasTexture_wrlfq")
+script = ExtResource("3_fnr2i")
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_ywcsq")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("5_w300o")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_c57vu")
+debug_color = Color(0.898071, 0.00018617, 0.770053, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_0rvp6")
