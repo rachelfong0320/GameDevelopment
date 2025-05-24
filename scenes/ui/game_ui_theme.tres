@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bv2hb354ml3nt"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://bv2hb354ml3nt"]
 
 [ext_resource type="Texture2D" uid="uid://1jcan823u8f5" path="res://assets/ui/basic_ui_sprites.png" id="1_nhbk8"]
 
@@ -22,6 +22,18 @@ texture = SubResource("AtlasTexture_nhbk8")
 region_rect = Rect2(0, 0, 26, 26)
 
 [sub_resource type="SystemFont" id="SystemFont_mtjyl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3405b"]
+atlas = ExtResource("1_nhbk8")
+region = Rect2(274, 177, 92, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwis4"]
+texture = SubResource("AtlasTexture_3405b")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 6.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(1, 0, 92, 27)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mtjyl"]
 load_path = "res://.godot/imported/basic_ui_sprites.png-f1365ff47f1f008f610f3c558cf47256.ctex"
@@ -103,6 +115,8 @@ MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+Timecounter/base_type = &"PanelContainer"
+Timecounter/styles/panel = SubResource("StyleBoxTexture_kwis4")
 ToolButton/base_type = &"Button"
 ToolButton/font_sizes/font_size = 12
 ToolButton/styles/disabled = SubResource("StyleBoxTexture_w57q2")

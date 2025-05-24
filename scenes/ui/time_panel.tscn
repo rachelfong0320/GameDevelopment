@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8uqt85i6gnw"]
+
+[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_ryvhp"]
+[ext_resource type="Script" uid="uid://8oh0t0dilvg1" path="res://scenes/ui/time_panel.gd" id="2_hu88u"]
+
+[node name="Time_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+theme = ExtResource("1_ryvhp")
+script = ExtResource("2_hu88u")
+
+[node name="TimingPanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_type_variation = &"Timecounter"
+
+[node name="CountdownLabel" type="Label" parent="TimingPanelContainer"]
+layout_mode = 2
+
+[node name="CountdownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.102
+
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
