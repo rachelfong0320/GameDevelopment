@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm0wx6gyc7pa5"]
+
+[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_2yiqu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ck5g"]
+load_path = "res://.godot/imported/fresh_food-removebg-preview.png-5174e18ff7c2bac8f8b7b13a10ed62fb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
+atlas = SubResource("CompressedTexture2D_7ck5g")
+region = Rect2(2, 2, 32, 34)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvy6a"]
+load_path = "res://.godot/imported/fresh_food-removebg-preview.png-5174e18ff7c2bac8f8b7b13a10ed62fb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta3uk"]
+atlas = SubResource("CompressedTexture2D_cvy6a")
+region = Rect2(248, 2, 36, 34)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lcq1t"]
+load_path = "res://.godot/imported/fresh_food-removebg-preview.png-5174e18ff7c2bac8f8b7b13a10ed62fb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b11k6"]
+atlas = SubResource("CompressedTexture2D_lcq1t")
+region = Rect2(248, 36, 34, 34)
+
+[node name="InventoryPanel" type="PanelContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -63.5
+offset_right = 48.0
+offset_bottom = 63.5
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_2yiqu")
+theme_type_variation = &"DarkWoodPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="apple" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/apple"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_17uwj")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="appleLabel" type="Label" parent="MarginContainer/VBoxContainer/apple"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "2"
+
+[node name="bread" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/bread"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ta3uk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="breadLabel" type="Label" parent="MarginContainer/VBoxContainer/bread"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "2"
+
+[node name="chicken" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/chicken"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_b11k6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="chickenLabel" type="Label" parent="MarginContainer/VBoxContainer/chicken"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "2"
