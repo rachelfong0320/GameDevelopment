@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfaqgohiewhlm"]
+
+[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/background.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://main_menu.gd" id="1_7vrkn"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_7vrkn")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1280.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(0, 0.854902, 0.921569, 1)
+theme_override_colors/font_shadow_color = Color(0.482827, 0.788732, 0.528191, 1)
+theme_override_colors/font_outline_color = Color(0.34902, 0, 0, 1)
+theme_override_constants/line_spacing = 20
+theme_override_constants/paragraph_spacing = 50
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 80
+theme_override_font_sizes/font_size = 120
+text = "Clean It Up！FSKTM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 151.0
+offset_top = 401.0
+offset_right = 1124.0
+offset_bottom = 741.0
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Play" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 75
+text = "PLAY"
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/MainButtons/Play"]
+z_index = -10
+layout_mode = 0
+offset_right = 188.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.970996, 0.786896, 0.878153, 1)
+
+[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 75
+text = "QUIT"
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/MainButtons/Quit"]
+z_index = -10
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(1, 0.545098, 0.447059, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(636, 398)
+scale = Vector2(1.03662, 1.05901)
+texture = ExtResource("1_06t4h")
+
+[connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
