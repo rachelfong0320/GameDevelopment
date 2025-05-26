@@ -16,6 +16,10 @@ func on_max_damaged_reached()-> void:
 	queue_free()
 
 
+
+
+
+
 func on_fresh_food_collected():
 	print("Time deduction triggered")
 	# Call time manager or emit a higher-level signal
