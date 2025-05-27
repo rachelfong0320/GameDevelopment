@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfaqgohiewhlm"]
 
-[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/background.png" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://scenes/UI/main_menu.gd" id="1_yonvy"]
+[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/UI/background.png" id="2_5jstl"]
 
 [node name="MainMenu" type="Node2D"]
-script = ExtResource("1_7vrkn")
+script = ExtResource("1_yonvy")
 
 [node name="Title" type="Label" parent="."]
 offset_right = 1280.0
@@ -67,7 +67,7 @@ color = Color(1, 0.545098, 0.447059, 1)
 z_index = -4096
 position = Vector2(636, 398)
 scale = Vector2(1.03662, 1.05901)
-texture = ExtResource("1_06t4h")
+texture = ExtResource("2_5jstl")
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]

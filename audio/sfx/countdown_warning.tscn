@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://boqke10tm3sph"]
+
+[ext_resource type="AudioStream" uid="uid://mjcavtmmxrwp" path="res://assets/audio/sfx/Countdown warning.mp3" id="1_tdne3"]
+
+[node name="CountdownWarningSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_tdne3")
+bus = &"SFX"

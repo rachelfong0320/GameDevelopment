@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgpa0gfou2cxt"]
+
+[ext_resource type="AudioStream" uid="uid://58dljxjj42hd" path="res://assets/audio/sfx/Transition sound effect.mp3" id="1_f2dje"]
+
+[node name="Transition sound effect" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_f2dje")
+bus = &"SFX"
