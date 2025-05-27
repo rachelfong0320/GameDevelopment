@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfaqgohiewhlm"]
+[gd_scene load_steps=7 format=3 uid="uid://dfaqgohiewhlm"]
 
 [ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://scenes/UI/main_menu.gd" id="1_yonvy"]
 [ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/UI/background.png" id="2_5jstl"]
+[ext_resource type="Texture2D" uid="uid://bt1p3i2ta8tvi" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0001.png" id="2_e2p27"]
+[ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="3_5jstl"]
+[ext_resource type="Texture2D" uid="uid://drard31pjfch1" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0002.png" id="3_ngj32"]
+
+[sub_resource type="Theme" id="Theme_bm8t2"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_yonvy")
@@ -28,46 +33,47 @@ offset_left = 151.0
 offset_top = 401.0
 offset_right = 1124.0
 offset_bottom = 741.0
+theme = SubResource("Theme_bm8t2")
 
 [node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 26
+theme_override_constants/separation = 56
 
 [node name="Play" type="Button" parent="CenterContainer/MainButtons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
 theme_override_constants/outline_size = 35
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/MainButtons/Play"]
-z_index = -10
-layout_mode = 0
-offset_right = 188.0
-offset_bottom = 110.0
-mouse_filter = 2
-color = Color(0.970996, 0.786896, 0.878153, 1)
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/MainButtons/Play"]
+z_index = -1
+position = Vector2(64, 37.5)
+scale = Vector2(5.5, 3.40625)
+texture = ExtResource("2_e2p27")
 
 [node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
 theme_override_constants/outline_size = 35
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/MainButtons/Quit"]
-z_index = -10
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 112.0
-mouse_filter = 2
-color = Color(1, 0.545098, 0.447059, 1)
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/MainButtons/Quit"]
+z_index = -1
+position = Vector2(64, 39.5)
+scale = Vector2(5.625, 3.40625)
+texture = ExtResource("3_ngj32")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4096
-position = Vector2(636, 398)
+position = Vector2(642, 402)
 scale = Vector2(1.03662, 1.05901)
 texture = ExtResource("2_5jstl")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5jstl")
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
