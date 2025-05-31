@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="GameDev"
+run/main_scene="uid://dfaqgohiewhlm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bne47127ldh7m"
 
 [autoload]
 
@@ -33,6 +38,7 @@ window/stretch/scale_mode="integer"
 folder_colors={
 "res://Tilesets/": "yellow",
 "res://assets/": "orange",
+"res://audio/": "red",
 "res://scenes/": "green",
 "res://scripts/": "pink"
 }

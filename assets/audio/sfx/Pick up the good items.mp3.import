@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cw7uuaagcuydf"
+path="res://.godot/imported/Pick up the good items.mp3-5af3788c1ba6078641b7db6a247ae274.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Pick up the good items.mp3"
+dest_files=["res://.godot/imported/Pick up the good items.mp3-5af3788c1ba6078641b7db6a247ae274.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

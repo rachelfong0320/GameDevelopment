@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b0q7mn2p6co1n"]
+[gd_scene load_steps=19 format=4 uid="uid://b0q7mn2p6co1n"]
 
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_1yvk5"]
 [ext_resource type="Script" uid="uid://b6nmm8d6x4rph" path="res://scenes/test/test_scene_class.gd" id="1_qofvf"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://daxrchfmphrmk" path="res://scenes/objects/rottenFood/rotten_coke.tscn" id="9_6eldw"]
 [ext_resource type="PackedScene" uid="uid://dmqyl7hiv6h6u" path="res://scenes/objects/freshFood/fresh_coke.tscn" id="10_pv1ws"]
 [ext_resource type="PackedScene" uid="uid://7xdb13th2sd4" path="res://scenes/objects/freshFood/fresh_burger.tscn" id="12_vb74j"]
+[ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="15_vb74j"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y7de3"]
 scenes/1/scene = ExtResource("3_8r7jf")
@@ -72,3 +73,7 @@ position = Vector2(214, 347)
 
 [node name="Class2" type="Marker2D" parent="EntranceMarkers"]
 position = Vector2(147, 351)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_vb74j")
+autoplay = true
