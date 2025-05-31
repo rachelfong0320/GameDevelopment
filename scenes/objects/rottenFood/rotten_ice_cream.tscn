@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://3lgobr2vypw5"]
 
 [ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_ijv4o"]
-[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/game/objects/rotton_food-removebg-preview.png" id="2_wqaj8"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="2_wqaj8"]
 [ext_resource type="Script" uid="uid://b8i4w2api7qpv" path="res://rotten_ice_cream.gd" id="3_ly5pk"]
 [ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="4_8lxtl"]
 [ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="5_3euxf"]
@@ -37,7 +37,6 @@ position = Vector2(-2.90909, -2.4)
 shape = SubResource("CircleShape2D_1mfdp")
 
 [node name="HurtComponent" parent="." instance=ExtResource("5_3euxf")]
-tool = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(-2.90909, -2.4)

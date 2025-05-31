@@ -1,6 +1,6 @@
 # InventoryManager.gd
 extends Node
-
+signal inventory_updated(food_type: String, remaining_count: int)
 # Use dictionary to track how many items to collect
 var required_rotten_foods = {
 	"rotten_apple": 4,
@@ -9,8 +9,6 @@ var required_rotten_foods = {
 	"rotten_donut": 1,
 	"rotten_icecream": 5,
 }
-
-signal inventory_updated(food_type: String, remaining_count: int)
 
 
 func decrease_food_count(food_name: String) -> void:

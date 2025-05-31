@@ -1,6 +1,5 @@
 [gd_scene load_steps=19 format=4 uid="uid://c58ispr3wj4ef"]
 
-[ext_resource type="Script" uid="uid://b6nmm8d6x4rph" path="res://scenes/test/test_scene_class.gd" id="1_0byap"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="2_ivtf2"]
 [ext_resource type="PackedScene" uid="uid://ba3y141cth1r2" path="res://scenes/objects/freshFood/fresh_apple.tscn" id="3_ysoe5"]
 [ext_resource type="PackedScene" uid="uid://tpacy0msgeox" path="res://scenes/objects/rottenFood/rotten_burger.tscn" id="4_8k0mp"]
@@ -15,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://qhqshjbxk11p" path="res://scenes/test/scene_trigger.tscn" id="13_78l8g"]
 [ext_resource type="PackedScene" uid="uid://coq2um3vuc37o" path="res://scenes/characters/player/player.tscn" id="14_0f5bb"]
 [ext_resource type="PackedScene" uid="uid://cm0wx6gyc7pa5" path="res://scenes/ui/inventory_panel.tscn" id="15_ivtf2"]
+
+[sub_resource type="GDScript" id="GDScript_qqp6x"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y7de3"]
 scenes/1/scene = ExtResource("3_ysoe5")
@@ -35,7 +36,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_y7de3")
 size = Vector2(26, 30)
 
 [node name="TestSceneClassInventory" type="Node2D"]
-script = ExtResource("1_0byap")
+script = SubResource("GDScript_qqp6x")
 
 [node name="GameTileMap" type="Node2D" parent="."]
 
@@ -75,3 +76,7 @@ position = Vector2(214, 347)
 position = Vector2(147, 351)
 
 [node name="InventoryPanel" parent="." instance=ExtResource("15_ivtf2")]
+offset_left = 1.0
+offset_top = 291.0
+offset_right = 53.0
+offset_bottom = 490.0

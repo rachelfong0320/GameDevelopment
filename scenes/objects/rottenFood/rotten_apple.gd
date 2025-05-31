@@ -11,6 +11,7 @@ func _ready() -> void:
 func on_hurt(hit_damage: int) -> void:
 	damage_component.apply_damage(hit_damage)
 	
-func on_max_damaged_reached()-> void:
+func on_max_damaged_reached() -> void:
 	print("max damaged reached")
+	InventoryManager.collect_item("rotten_apple")  # << Add this line 
 	queue_free()
