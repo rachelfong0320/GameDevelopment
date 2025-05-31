@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c58ispr3wj4ef"]
+[gd_scene load_steps=20 format=4 uid="uid://c58ispr3wj4ef"]
 
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="2_ivtf2"]
 [ext_resource type="PackedScene" uid="uid://ba3y141cth1r2" path="res://scenes/objects/freshFood/fresh_apple.tscn" id="3_ysoe5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://qhqshjbxk11p" path="res://scenes/test/scene_trigger.tscn" id="13_78l8g"]
 [ext_resource type="PackedScene" uid="uid://coq2um3vuc37o" path="res://scenes/characters/player/player.tscn" id="14_0f5bb"]
 [ext_resource type="PackedScene" uid="uid://cm0wx6gyc7pa5" path="res://scenes/ui/inventory_panel.tscn" id="15_ivtf2"]
+[ext_resource type="PackedScene" uid="uid://bu8uqt85i6gnw" path="res://scenes/ui/time_panel.tscn" id="15_ysoe5"]
 
 [sub_resource type="GDScript" id="GDScript_qqp6x"]
 
@@ -80,3 +81,9 @@ offset_left = 6.0
 offset_top = 270.0
 offset_right = 58.0
 offset_bottom = 469.0
+
+[node name="Time_panel" parent="." instance=ExtResource("15_ysoe5")]
+offset_left = 698.0
+offset_top = 28.0
+offset_right = 698.0
+offset_bottom = 28.0

@@ -3,6 +3,120 @@
 [ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_ryvhp"]
 
 [sub_resource type="GDScript" id="GDScript_qqp6x"]
+script/source = "extends Control
+
+# References to child nodes
+@onready var countdown_label: Label = $TimingPanelContainer/CountdownLabel
+@onready var countdown_timer: Timer = $CountdownTimer
+
+# Timer properties
+@export var start_time: float = 300.0  # 5 minutes in seconds (adjust as needed)
+var current_time: float
+var is_timer_running: bool = false
+
+# Signals
+signal time_up
+signal time_warning(seconds_left: int)  # Emitted when time is low
+
+func _ready():
+	# Initialize the timer
+	current_time = start_time
+	
+	# Configure the Timer node
+	countdown_timer.wait_time = 1.0  # Update every second
+	countdown_timer.timeout.connect(_on_countdown_timer_timeout)
+	
+	# Update the display
+	_update_time_display()
+	
+	# Start the timer automatically (you can remove this if you want manual control)
+	start_timer()
+
+func start_timer():
+	\"\"\"Start or resume the countdown timer\"\"\"
+	if not is_timer_running:
+		is_timer_running = true
+		countdown_timer.start()
+		print(\"Timer started with \", current_time, \" seconds\")
+
+func pause_timer():
+	\"\"\"Pause the countdown timer\"\"\"
+	if is_timer_running:
+		is_timer_running = false
+		countdown_timer.stop()
+		print(\"Timer paused\")
+
+func stop_timer():
+	\"\"\"Stop and reset the countdown timer\"\"\"
+	is_timer_running = false
+	countdown_timer.stop()
+	current_time = start_time
+	_update_time_display()
+	print(\"Timer stopped and reset\")
+
+func add_time(seconds: float):
+	\"\"\"Add bonus time to the timer\"\"\"
+	current_time += seconds
+	_update_time_display()
+	print(\"Added \", seconds, \" seconds to timer\")
+
+func _on_countdown_timer_timeout():
+	\"\"\"Called every second when timer is running\"\"\"
+	if current_time > 0:
+		current_time -= 1.0
+		_update_time_display()
+		
+		# Check for warnings
+		if current_time == 60:  # 1 minute warning
+			time_warning.emit(60)
+		elif current_time == 30:  # 30 second warning
+			time_warning.emit(30)
+		elif current_time == 10:  # 10 second warning
+			time_warning.emit(10)
+	else:
+		# Time's up!
+		_time_up()
+
+func _time_up():
+	\"\"\"Handle when time runs out\"\"\"
+	is_timer_running = false
+	countdown_timer.stop()
+	current_time = 0
+	_update_time_display()
+	time_up.emit()
+	print(\"Time's up!\")
+
+func _update_time_display():
+	\"\"\"Update the countdown label with formatted time\"\"\"
+	var minutes = int(current_time) / 60
+	var seconds = int(current_time) % 60
+	
+	# Format as MM:SS
+	var time_text = \"%02d:%02d\" % [minutes, seconds]
+	countdown_label.text = time_text
+	
+	# Change color based on remaining time
+	if current_time <= 10:
+		countdown_label.modulate = Color.RED  # Red for last 10 seconds
+	elif current_time <= 30:
+		countdown_label.modulate = Color.ORANGE  # Orange for last 30 seconds
+	elif current_time <= 60:
+		countdown_label.modulate = Color.YELLOW  # Yellow for last minute
+	else:
+		countdown_label.modulate = Color.WHITE  # White for normal time
+
+# Getter functions for other scripts to access timer info
+func get_time_remaining() -> float:
+	return current_time
+
+func get_time_remaining_formatted() -> String:
+	var minutes = int(current_time) / 60
+	var seconds = int(current_time) % 60
+	return \"%02d:%02d\" % [minutes, seconds]
+
+func is_running() -> bool:
+	return is_timer_running
+"
 
 [node name="Time_panel" type="Control"]
 layout_mode = 3

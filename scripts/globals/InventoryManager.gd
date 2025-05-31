@@ -1,5 +1,7 @@
 # scripts/globals/InventoryManager.gd - Global Singleton
 extends Node
+# Add reference to time panel
+var time_panel: Control
 
 var inventory: Dictionary = {
 	"rotten_apple": 5,
@@ -14,6 +16,10 @@ signal inventory_changed(item_name: String, new_count: int)
 func _ready():
 	# Make this node persistent across scenes
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	# Get reference to time panel
+	time_panel = get_node("../Time_panel")  # Adjust path as needed
+
+	
 
 func collect_item(item_name: String) -> bool:
 	if inventory.has(item_name) and inventory[item_name] > 0:
