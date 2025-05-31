@@ -30,6 +30,7 @@ script = ExtResource("2_bo8go")
 [node name="DamageComponent" parent="." instance=ExtResource("3_fn6ci")]
 
 [node name="HurtComponent" parent="." instance=ExtResource("4_q3sok")]
+tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 shape = SubResource("CircleShape2D_0j6p2")

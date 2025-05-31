@@ -41,6 +41,7 @@ debug_color = Color(0.24138, 0.506892, 1, 0.42)
 
 [node name="HurtComponent" parent="." instance=ExtResource("3_obb17")]
 material = SubResource("ShaderMaterial_rt2w0")
+tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 material = SubResource("ShaderMaterial_rt2w0")
