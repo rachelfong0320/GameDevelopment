@@ -1,18 +1,18 @@
 [gd_scene load_steps=10 format=3 uid="uid://bleh2ljpoagi0"]
 
-[ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_e41vb"]
-[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="2_lwyu6"]
-[ext_resource type="Script" uid="uid://06046lfqtt3e" path="res://rotton_donut.gd" id="3_udyyh"]
-[ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="4_uhtwb"]
-[ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="5_3jeqv"]
+[ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_ixjil"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="2_msgnd"]
+[ext_resource type="Script" uid="uid://06046lfqtt3e" path="res://rotton_donut.gd" id="3_6gmel"]
+[ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="4_0h0l7"]
+[ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="5_02mh4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1b644"]
-shader = ExtResource("1_e41vb")
+shader = ExtResource("1_ixjil")
 shader_parameter/shake_intensity = 1.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3581p"]
-atlas = ExtResource("2_lwyu6")
+atlas = ExtResource("2_msgnd")
 region = Rect2(0, 104, 36, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2ark"]
@@ -26,16 +26,17 @@ material = SubResource("ShaderMaterial_1b644")
 position = Vector2(5.96046e-08, 5.96046e-08)
 scale = Vector2(0.222222, 0.236111)
 texture = SubResource("AtlasTexture_3581p")
-script = ExtResource("3_udyyh")
+script = ExtResource("3_6gmel")
 
-[node name="DamageComponent" parent="." instance=ExtResource("4_uhtwb")]
+[node name="DamageComponent" parent="." instance=ExtResource("4_0h0l7")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_h2ark")
 
-[node name="HurtComponent" parent="." instance=ExtResource("5_3jeqv")]
+[node name="HurtComponent" parent="." instance=ExtResource("5_02mh4")]
+tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(5.72205e-06, 5.14286)

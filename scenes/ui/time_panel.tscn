@@ -10,7 +10,7 @@ script/source = "extends Control
 @onready var countdown_timer: Timer = $CountdownTimer
 
 # Timer properties
-@export var start_time: float = 300.0  # 5 minutes in seconds (adjust as needed)
+@export var start_time: float = 600.0  # 5 minutes in seconds (adjust as needed)
 var current_time: float
 var is_timer_running: bool = false
 

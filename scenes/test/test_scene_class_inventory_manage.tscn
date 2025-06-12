@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfd6ivautom8b" path="res://scenes/objects/freshFood/fresh_ice_cream.tscn" id="6_x6182"]
 [ext_resource type="PackedScene" uid="uid://3lgobr2vypw5" path="res://scenes/objects/rottenFood/rotten_ice_cream.tscn" id="7_wiou5"]
 [ext_resource type="PackedScene" uid="uid://bxt6bfdgqn8i" path="res://scenes/objects/freshFood/fresh_donut.tscn" id="8_hc5n6"]
-[ext_resource type="PackedScene" uid="uid://bleh2ljpoagi0" path="res://scenes/objects/rottenFood/rotton_donut.tscn" id="9_sypqy"]
+[ext_resource type="PackedScene" uid="uid://bleh2ljpoagi0" path="res://scenes/objects/rottenFood/rotten_donut.tscn" id="9_sypqy"]
 [ext_resource type="PackedScene" uid="uid://daxrchfmphrmk" path="res://scenes/objects/rottenFood/rotten_coke.tscn" id="10_0cf7m"]
 [ext_resource type="PackedScene" uid="uid://dmqyl7hiv6h6u" path="res://scenes/objects/freshFood/fresh_coke.tscn" id="11_o14yu"]
 [ext_resource type="PackedScene" uid="uid://7xdb13th2sd4" path="res://scenes/objects/freshFood/fresh_burger.tscn" id="12_8rory"]

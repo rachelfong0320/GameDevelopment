@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 scene_manager="*res://scripts/globals/scene_manager.gd"
-InventoryManager="*res://inventory_manager.gd"
+InventoryManager="*res://scripts/globals/InventoryManager.gd"
+UiManager="*res://scripts/globals/UIManager.gd"
 
 [display]
 
