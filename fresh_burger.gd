@@ -19,3 +19,9 @@ func on_max_damaged_reached()-> void:
 func on_fresh_food_collected():
 	print("Time deduction triggered")
 	# Call time manager or emit a higher-level signal
+	
+	var time_panels = get_tree().get_nodes_in_group("time_panel")
+	if time_panels.size() > 0:
+		var time_panel = time_panels[0]
+		if time_panel.has_method("subtract_time"):
+			time_panel.subtract_time(60.0)  # 1 minute penalty

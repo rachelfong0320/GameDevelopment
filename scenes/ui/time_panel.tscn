@@ -19,6 +19,8 @@ signal time_up
 signal time_warning(seconds_left: int)  # Emitted when time is low
 
 func _ready():
+	
+	add_to_group(\"time_panel\")
 	# Initialize the timer
 	current_time = start_time
 	
@@ -31,6 +33,17 @@ func _ready():
 	
 	# Start the timer automatically (you can remove this if you want manual control)
 	start_timer()
+	
+func subtract_time(seconds: float):
+	\"\"\"Subtract time from the timer (penalty for collecting fresh foods)\"\"\"
+	current_time = max(0, current_time - seconds)
+	_update_time_display()
+	print(\"Subtracted \", seconds, \" seconds from timer. Remaining: \", current_time, \" seconds\")
+	if current_time <= 0:
+		_time_up()
+		if current_time <= 60 and current_time > 0:
+			time_warning.emit(int(current_time))
+
 
 func start_timer():
 	\"\"\"Start or resume the countdown timer\"\"\"
