@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://darjcoei4qkxg"]
+[gd_scene load_steps=18 format=4 uid="uid://darjcoei4qkxg"]
 
 [ext_resource type="Script" uid="uid://nxyjj8obru58" path="res://scripts/globals/base_script.gd" id="1_rpw4s"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_ska2q"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://7xdb13th2sd4" path="res://scenes/objects/freshFood/fresh_burger.tscn" id="10_sywwi"]
 [ext_resource type="PackedScene" uid="uid://dmqyl7hiv6h6u" path="res://scenes/objects/freshFood/fresh_coke.tscn" id="11_hk02d"]
 [ext_resource type="PackedScene" uid="uid://bxt6bfdgqn8i" path="res://scenes/objects/freshFood/fresh_donut.tscn" id="12_g1xyo"]
+[ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="14_82j7b"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_anejm"]
 scenes/1/scene = ExtResource("3_a1756")
@@ -69,5 +70,9 @@ shape = SubResource("RectangleShape2D_rpw4s")
 
 [node name="TestSceneClass" type="Marker2D" parent="EntranceMarkers"]
 position = Vector2(1088, 279)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_82j7b")
+autoplay = true
 
 [connection signal="body_entered" from="GameTileMap/SceneTrigger" to="GameTileMap/SceneTrigger" method="_on_body_entered"]

@@ -14,6 +14,7 @@ config/name="GameDev"
 run/main_scene="uid://b0q7mn2p6co1n"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://b0q7mn2p6co1n"
 
 [autoload]
 

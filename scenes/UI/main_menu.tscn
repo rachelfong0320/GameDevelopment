@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfaqgohiewhlm"]
+
+[ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://scenes/UI/main_menu.gd" id="1_yonvy"]
+[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/UI/background.png" id="2_5jstl"]
+[ext_resource type="Texture2D" uid="uid://bt1p3i2ta8tvi" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0001.png" id="2_e2p27"]
+[ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/UI/DynaPuff-VariableFont_wdth,wght.ttf" id="2_ngj32"]
+[ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="3_5jstl"]
+[ext_resource type="Texture2D" uid="uid://drard31pjfch1" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0002.png" id="3_ngj32"]
+
+[sub_resource type="Theme" id="Theme_5d4ag"]
+Button/fonts/font = ExtResource("2_ngj32")
+Label/fonts/font = ExtResource("2_ngj32")
+
+[sub_resource type="Theme" id="Theme_bm8t2"]
+
+[sub_resource type="Theme" id="Theme_ngj32"]
+Button/fonts/font = ExtResource("2_ngj32")
+
+[sub_resource type="Theme" id="Theme_um6dh"]
+Button/fonts/font = ExtResource("2_ngj32")
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_yonvy")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1280.0
+offset_bottom = 509.0
+theme = SubResource("Theme_5d4ag")
+theme_override_colors/font_color = Color(0, 0.854902, 0.921569, 1)
+theme_override_colors/font_shadow_color = Color(0.482827, 0.788732, 0.528191, 1)
+theme_override_colors/font_outline_color = Color(0.34902, 0, 0, 1)
+theme_override_constants/line_spacing = 20
+theme_override_constants/paragraph_spacing = 50
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 80
+theme_override_font_sizes/font_size = 120
+text = "Clean It Up！FSKTM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 151.0
+offset_top = 401.0
+offset_right = 1124.0
+offset_bottom = 741.0
+theme = SubResource("Theme_bm8t2")
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 56
+
+[node name="Play" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme = SubResource("Theme_ngj32")
+theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/MainButtons/Play"]
+z_index = -1
+position = Vector2(62, 35)
+scale = Vector2(5.375, 3.0625)
+texture = ExtResource("2_e2p27")
+
+[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme = SubResource("Theme_um6dh")
+theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/MainButtons/Quit"]
+z_index = -1
+position = Vector2(63, 35)
+scale = Vector2(5.5625, 3)
+texture = ExtResource("3_ngj32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(641, 399)
+scale = Vector2(1.03662, 1.05901)
+texture = ExtResource("2_5jstl")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5jstl")
+autoplay = true
+
+[connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b75mul8grxhxj"]
+
+[ext_resource type="AudioStream" uid="uid://bbmv4c8wqlr7f" path="res://assets/audio/sfx/Normal speed timer.mp3" id="1_tnghy"]
+
+[node name="Normal speed timer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_tnghy")
+bus = &"SFX"

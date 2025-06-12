@@ -14,7 +14,7 @@ func _ready():
 	# Make this node persistent across scenes
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
 	# Get reference to time panel
-	time_panel = get_node("../Time_panel")  # Adjust path as needed
+	time_panel = get_node("res://scenes/ui/time_panel.tscn")  # Adjust path as needed
 func collect_item(item_name: String) -> bool:
 	if inventory.has(item_name) and inventory[item_name] > 0:
 		inventory[item_name] -= 1

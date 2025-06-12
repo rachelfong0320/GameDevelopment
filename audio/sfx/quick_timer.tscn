@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhyraed5duyix"]
+
+[ext_resource type="AudioStream" uid="uid://gcnc5ncow2a5" path="res://assets/audio/sfx/Quick timer.mp3" id="1_udfjm"]
+
+[node name="Quick timer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_udfjm")
+bus = &"SFX"

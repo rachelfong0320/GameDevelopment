@@ -11,7 +11,8 @@ signal rotten_food_collected
 
 func _ready():
 	# Connect the area_entered signal
-	area_entered.connect(_on_area_entered)
+	if not area_entered.is_connected(_on_area_entered):
+		area_entered.connect(_on_area_entered)
 	
 	# Auto-set item_name based on parent's scene filename if not manually set
 	if item_name.is_empty():
