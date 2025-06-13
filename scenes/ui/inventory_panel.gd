@@ -1,4 +1,4 @@
-# Alternative InventoryPanel.gd - Simpler approach without singleton
+# inventory_panel.tscn - Updated with win condition checking
 extends Control
 
 # Inventory data stored locally
@@ -43,10 +43,42 @@ func collect_item(item_name: String) -> bool:
 		inventory[item_name] -= 1
 		_update_label_for_item(item_name)
 		print("Collected: ", item_name, " - Remaining: ", inventory[item_name])
+		
+		# Check for win condition after collecting item
+		_check_win_condition()
+		
 		return true
 	else:
 		print("Cannot collect ", item_name, " - not available or count is 0")
 		return false
+
+func _check_win_condition():
+	"""Check if all items are collected"""
+	var total_items = 0
+	for item_count in inventory.values():
+		total_items += item_count
+	
+	if total_items == 0:
+		print("All items collected! Player wins!")
+		
+		# Try to notify time panel about win condition
+		var time_panels = get_tree().get_nodes_in_group("time_panel")
+		if time_panels.size() > 0:
+			var time_panel = time_panels[0]
+			if time_panel.has_method("check_win_condition"):
+				time_panel.check_win_condition()
+		
+		# Also try UIManager if available
+		if has_node("/root/UIManager"):
+			var ui_manager = get_node("/root/UIManager")
+			if ui_manager.has_method("get_time_panel"):
+				var time_panel = ui_manager.get_time_panel()
+				if time_panel and time_panel.has_method("check_win_condition"):
+					time_panel.check_win_condition()
+
+func get_all_inventory() -> Dictionary:
+	"""Return a copy of the current inventory"""
+	return inventory.duplicate()
 
 func _update_label_for_item(item_name: String):
 	match item_name:

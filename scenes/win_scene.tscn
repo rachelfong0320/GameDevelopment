@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c27p7wjt31d25"]
 
-[ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/UI/DynaPuff-VariableFont_wdth,wght.ttf" id="1_aw8vk"]
-[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/UI/background.png" id="2_ecqtd"]
+[ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/ui/DynaPuff-VariableFont_wdth,wght.ttf" id="1_aw8vk"]
+[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/ui/background.png" id="2_ecqtd"]
 
 [node name="Win scene" type="Node2D"]
 
