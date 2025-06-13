@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c27p7wjt31d25"]
+[gd_scene load_steps=7 format=3 uid="uid://c27p7wjt31d25"]
 
 [ext_resource type="Script" uid="uid://dlr6fk0hfnyyx" path="res://scenes/win_scene.gd" id="1_7yt3q"]
 [ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/UI/DynaPuff-VariableFont_wdth,wght.ttf" id="1_aw8vk"]
 [ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/UI/background.png" id="2_ecqtd"]
 [ext_resource type="Texture2D" uid="uid://bt1p3i2ta8tvi" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0001.png" id="3_ecqtd"]
+[ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="5_b6ng8"]
 
 [sub_resource type="Theme" id="Theme_7yt3q"]
 Button/fonts/font = ExtResource("1_aw8vk")
@@ -50,5 +51,9 @@ z_index = -1
 position = Vector2(125, 35)
 scale = Vector2(10.5625, 3.15625)
 texture = ExtResource("3_ecqtd")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_b6ng8")
+autoplay = true
 
 [connection signal="pressed" from="MAINMENU" to="." method="_on_mainmenu_pressed"]
