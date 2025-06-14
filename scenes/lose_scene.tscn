@@ -32,8 +32,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(641.5, 401)
-scale = Vector2(1.02627, 1.04799)
+position = Vector2(638.251, 402)
+scale = Vector2(1.02826, 1.05058)
 texture = ExtResource("2_m2sg5")
 
 [node name="MAINMENU" type="Button" parent="."]
