@@ -665,6 +665,8 @@ radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 10
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_xuses")
 current_tool = 1
 
