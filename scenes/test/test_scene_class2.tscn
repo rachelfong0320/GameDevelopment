@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://darjcoei4qkxg"]
+[gd_scene load_steps=20 format=4 uid="uid://darjcoei4qkxg"]
 
 [ext_resource type="Script" uid="uid://nxyjj8obru58" path="res://scripts/globals/base_script.gd" id="1_rpw4s"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_ska2q"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dmqyl7hiv6h6u" path="res://scenes/objects/freshFood/fresh_coke.tscn" id="11_hk02d"]
 [ext_resource type="PackedScene" uid="uid://bxt6bfdgqn8i" path="res://scenes/objects/freshFood/fresh_donut.tscn" id="12_g1xyo"]
 [ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="14_82j7b"]
+[ext_resource type="PackedScene" uid="uid://ce4mjxobvsj5w" path="res://scenes/characters/NPC/npc_a.tscn" id="15_003au"]
+[ext_resource type="PackedScene" uid="uid://bxm331uysbcfl" path="res://scenes/characters/NPC/npc_b.tscn" id="16_quhg7"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_anejm"]
 scenes/1/scene = ExtResource("3_a1756")
@@ -74,5 +76,11 @@ position = Vector2(1088, 279)
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_82j7b")
 autoplay = true
+
+[node name="NPC_A" parent="." instance=ExtResource("15_003au")]
+position = Vector2(435, 298)
+
+[node name="NPC_B" parent="." instance=ExtResource("16_quhg7")]
+position = Vector2(542, 298)
 
 [connection signal="body_entered" from="GameTileMap/SceneTrigger" to="GameTileMap/SceneTrigger" method="_on_body_entered"]
