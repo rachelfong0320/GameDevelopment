@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2s0c0qwfyghy"]
+
+[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="1_qw3ob"]
+[ext_resource type="Script" uid="uid://c33mk1u26cb0y" path="res://scenes/characters/NPC/idle_state.gd" id="2_6gfbf"]
+[ext_resource type="Script" uid="uid://dx536rj27rv4a" path="res://scenes/characters/NPC/run_state.gd" id="3_iwh7u"]
+[ext_resource type="Script" uid="uid://cgru843r241f3" path="res://scenes/characters/NPC/taking.gd" id="4_mofdx"]
+
+[node name="StateMachine" type="Node" node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("1_qw3ob")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("npc", "animated_sprite_2d")]
+script = ExtResource("2_6gfbf")
+npc = NodePath("")
+animated_sprite_2d = NodePath("")
+
+[node name="Run" type="Node" parent="." node_paths=PackedStringArray("npc", "animated_sprite_2d")]
+script = ExtResource("3_iwh7u")
+npc = NodePath("")
+animated_sprite_2d = NodePath("")
+
+[node name="Taking" type="Node" parent="." node_paths=PackedStringArray("npc", "animated_sprite_2d", "hit_component_collision_shape")]
+script = ExtResource("4_mofdx")
+npc = NodePath("")
+animated_sprite_2d = NodePath("")
+hit_component_collision_shape = NodePath("")
