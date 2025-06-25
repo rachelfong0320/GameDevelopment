@@ -6,8 +6,8 @@ var inventory: Dictionary = {
 	"rotten_apple": 5,
 	"rotten_burger": 4,
 	"rotten_coke": 4,
-	"rotten_donut": 7,
-	"rotten_icecream": 8
+	"rotten_donut": 3,
+	"rotten_icecream": 5
 }
 
 # References to your labels - UPDATE THESE PATHS TO MATCH YOUR EXACT STRUCTURE

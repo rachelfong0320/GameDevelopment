@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqtg5j30nv4a"
-path="res://.godot/imported/tile_0023.png-a6431ad44a9f374b088356ce18204cdc.ctex"
+path="res://.godot/imported/tile_0023.png-cfa02fffdfa69b995236ac29f71d0303.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ui/Tiles/Large tiles/Thick outline/tile_0023.png"
-dest_files=["res://.godot/imported/tile_0023.png-a6431ad44a9f374b088356ce18204cdc.ctex"]
+source_file="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0023.png"
+dest_files=["res://.godot/imported/tile_0023.png-cfa02fffdfa69b995236ac29f71d0303.ctex"]
 
 [params]
 
