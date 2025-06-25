@@ -29,7 +29,7 @@ texture = SubResource("AtlasTexture_5dqjv")
 script = ExtResource("3_8mnrv")
 
 [node name="HurtComponent" parent="." instance=ExtResource("4_gxyxk")]
-tool = 1
+tool = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(-3, -1)

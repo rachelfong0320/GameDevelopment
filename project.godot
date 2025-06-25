@@ -14,14 +14,13 @@ config/name="GameDev"
 run/main_scene="uid://dfaqgohiewhlm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-
-[audio]
-
-buses/default_bus_layout="uid://bne47127ldh7m"
+<<<<<<<HEADrun/main_scene="uid://b0q7mn2p6co1n"
 
 [autoload]
 
 scene_manager="*res://scripts/globals/scene_manager.gd"
+InventoryManager="*res://scripts/globals/InventoryManager.gd"
+UiManager="*res://scripts/globals/UIManager.gd"
 
 [display]
 
@@ -38,7 +37,6 @@ window/stretch/scale_mode="integer"
 folder_colors={
 "res://Tilesets/": "yellow",
 "res://assets/": "orange",
-"res://audio/": "red",
 "res://scenes/": "green",
 "res://scripts/": "pink"
 }

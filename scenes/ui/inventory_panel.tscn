@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=3 uid="uid://cm0wx6gyc7pa5"]
+
+[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_2yiqu"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="2_17uwj"]
+[ext_resource type="Script" uid="uid://cpsl7cu7asxjs" path="res://scenes/ui/inventory_panel.gd" id="2_cvy6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
+atlas = ExtResource("2_17uwj")
+region = Rect2(4, 3, 30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta3uk"]
+atlas = ExtResource("2_17uwj")
+region = Rect2(5, 37, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b11k6"]
+atlas = ExtResource("2_17uwj")
+region = Rect2(80, 72, 21, 31)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvy6a"]
+load_path = "res://.godot/imported/rotton_food-removebg-preview.png-468903ac7171b818ae0c9f049b73e013.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcq1t"]
+atlas = SubResource("CompressedTexture2D_cvy6a")
+region = Rect2(3, 108, 34, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b11k6"]
+load_path = "res://.godot/imported/rotton_food-removebg-preview.png-468903ac7171b818ae0c9f049b73e013.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdvod"]
+atlas = SubResource("CompressedTexture2D_b11k6")
+region = Rect2(218, 106, 25, 35)
+
+[node name="InventoryPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 360)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_right = 100.0
+offset_bottom = 312.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_2yiqu")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_cvy6a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Rotten_apple" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(66, 62)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rotten_apple"]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_17uwj")
+stretch_mode = 5
+
+[node name="appleLabel" type="Label" parent="MarginContainer/VBoxContainer/Rotten_apple"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "5"
+
+[node name="Rotten_burger" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(66, 62)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rotten_burger"]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ta3uk")
+stretch_mode = 5
+
+[node name="burgerLabel" type="Label" parent="MarginContainer/VBoxContainer/Rotten_burger"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "4"
+
+[node name="Rotten_coke" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(66, 62)
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rotten_coke"]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_b11k6")
+stretch_mode = 5
+
+[node name="cokeLabel" type="Label" parent="MarginContainer/VBoxContainer/Rotten_coke"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "4"
+
+[node name="Rotten_donut" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(66, 62)
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rotten_donut"]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_lcq1t")
+stretch_mode = 5
+
+[node name="donutLabel" type="Label" parent="MarginContainer/VBoxContainer/Rotten_donut"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "7"
+
+[node name="Rotten_icecream" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(66, 62)
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rotten_icecream"]
+custom_minimum_size = Vector2(13, 13)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_tdvod")
+stretch_mode = 5
+
+[node name="icecreamLabel" type="Label" parent="MarginContainer/VBoxContainer/Rotten_icecream"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "8"

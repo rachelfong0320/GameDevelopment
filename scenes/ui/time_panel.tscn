@@ -1,0 +1,412 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu8uqt85i6gnw"]
+
+[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_ryvhp"]
+
+[sub_resource type="GDScript" id="GDScript_qqp6x"]
+script/source = "# Time_panel.tscn script - Updated with win/lose logic
+
+extends Control
+
+# References to child nodes
+@onready var countdown_label: Label = $TimingPanelContainer/CountdownLabel
+@onready var countdown_timer: Timer = $CountdownTimer
+
+# Timer properties
+@export var start_time: float = 1200.0  # 20 minutes in seconds (adjust as needed)
+var current_time: float
+var is_timer_running: bool = false
+
+# Signals
+signal time_up
+signal time_warning(seconds_left: int)  # Emitted when time is low
+signal game_won  # New signal for winning
+signal game_lost  # New signal for losing
+
+func _ready():
+	add_to_group(\"time_panel\")
+	# Initialize the timer
+	current_time = start_time
+	
+	# Configure the Timer node
+	countdown_timer.wait_time = 1.0  # Update every second
+	if not countdown_timer.timeout.is_connected(_on_countdown_timer_timeout):
+		countdown_timer.timeout.connect(_on_countdown_timer_timeout)
+	
+	# Update the display
+	_update_time_display()
+	
+	# Start the timer automatically (you can remove this if you want manual control)
+	start_timer()
+	
+func subtract_time(seconds: float):
+	\"\"\"Subtract time from the timer (penalty for collecting fresh foods)\"\"\"
+	current_time = max(0, current_time - seconds)
+	_update_time_display()
+	print(\"Subtracted \", seconds, \" seconds from timer. Remaining: \", current_time, \" seconds\")
+	if current_time <= 0:
+		_time_up()
+	elif current_time <= 60 and current_time > 0:
+		time_warning.emit(int(current_time))
+
+func start_timer():
+	\"\"\"Start or resume the countdown timer\"\"\"
+	if not is_timer_running:
+		is_timer_running = true
+		countdown_timer.start()
+		print(\"Timer started with \", current_time, \" seconds\")
+
+func pause_timer():
+	\"\"\"Pause the countdown timer\"\"\"
+	if is_timer_running:
+		is_timer_running = false
+		countdown_timer.stop()
+		print(\"Timer paused\")
+
+func stop_timer():
+	\"\"\"Stop and reset the countdown timer\"\"\"
+	is_timer_running = false
+	countdown_timer.stop()
+	current_time = start_time
+	_update_time_display()
+	print(\"Timer stopped and reset\")
+
+func add_time(seconds: float):
+	\"\"\"Add bonus time to the timer\"\"\"
+	current_time += seconds
+	_update_time_display()
+	print(\"Added \", seconds, \" seconds to timer\")
+
+func _on_countdown_timer_timeout():
+	\"\"\"Called every second when timer is running\"\"\"
+	if current_time > 0:
+		current_time -= 1.0
+		_update_time_display()
+		
+		# Check for warnings
+		if current_time == 60:  # 1 minute warning
+			time_warning.emit(60)
+		elif current_time == 30:  # 30 second warning
+			time_warning.emit(30)
+		elif current_time == 10:  # 10 second warning
+			time_warning.emit(10)
+	else:
+		# Time's up!
+		_time_up()
+
+func _time_up():
+	\"\"\"Handle when time runs out\"\"\"
+	is_timer_running = false
+	countdown_timer.stop()
+	current_time = 0
+	_update_time_display()
+	time_up.emit()
+	
+	# Check if player lost (time ran out but still has items)
+	if _check_inventory_has_items():
+		game_lost.emit()
+		print(\"Game Over - Time's up and still have items!\")
+	else:
+		game_won.emit()
+		print(\"Congratulations - You collected all items!\")
+
+func check_win_condition():
+	\"\"\"Check if all items are collected (win condition)\"\"\"
+	if not _check_inventory_has_items():
+		# Player won - collected all items before time ran out
+		is_timer_running = false
+		countdown_timer.stop()
+		game_won.emit()
+		print(\"Congratulations - You collected all items before time ran out!\")
+		return true
+	return false
+
+func _check_inventory_has_items() -> bool:
+	\"\"\"Check if inventory still has any items remaining\"\"\"
+	# Try to get inventory from different sources
+	var inventory_data = {}
+	
+	# Method 1: Try to find inventory panel in scene first (most reliable)
+	var inv_nodes = get_tree().get_nodes_in_group(\"inventory_ui\")
+	if inv_nodes.size() > 0 and inv_nodes[0].has_method(\"get_all_inventory\"):
+		inventory_data = inv_nodes[0].get_all_inventory()
+	
+	# Method 2: Try to get from UIManager if it exists
+	elif has_node(\"/root/UIManager\"):
+		var ui_manager = get_node(\"/root/UIManager\")
+		if ui_manager.has_method(\"get_inventory_panel\"):
+			var inv_panel = ui_manager.get_inventory_panel()
+			if inv_panel and inv_panel.has_method(\"get_all_inventory\"):
+				inventory_data = inv_panel.get_all_inventory()
+	
+	# Method 3: Try to get from InventoryManager singleton if it exists
+	elif has_node(\"/root/InventoryManager\"):
+		var inv_manager = get_node(\"/root/InventoryManager\")
+		if inv_manager.has_method(\"get_all_inventory\"):
+			inventory_data = inv_manager.get_all_inventory()
+	
+	# Check if any items remain
+	for item_name in inventory_data.keys():
+		if inventory_data[item_name] > 0:
+			return true  # Still has items
+	
+	return false  # No items remaining
+
+func get_all_inventory() -> Dictionary:
+	\"\"\"Helper function to get inventory data\"\"\"
+	# Method 1: Try to find inventory panel in scene first
+	var inv_nodes = get_tree().get_nodes_in_group(\"inventory_ui\")
+	if inv_nodes.size() > 0 and inv_nodes[0].has_method(\"get_all_inventory\"):
+		return inv_nodes[0].get_all_inventory()
+	
+	# Method 2: Try UIManager if it exists
+	if has_node(\"/root/UIManager\"):
+		var ui_manager = get_node(\"/root/UIManager\")
+		if ui_manager.has_method(\"get_inventory_panel\"):
+			var inv_panel = ui_manager.get_inventory_panel()
+			if inv_panel and inv_panel.has_method(\"get_all_inventory\"):
+				return inv_panel.get_all_inventory()
+	
+	# Method 3: Try InventoryManager if it exists
+	if has_node(\"/root/InventoryManager\"):
+		var inv_manager = get_node(\"/root/InventoryManager\")
+		if inv_manager.has_method(\"get_all_inventory\"):
+			return inv_manager.get_all_inventory()
+	
+	return {}
+
+func _update_time_display():
+	\"\"\"Update the countdown label with formatted time\"\"\"
+	var minutes = int(current_time) / 60
+	var seconds = int(current_time) % 60
+	
+	# Format as MM:SS
+	var time_text = \"%02d:%02d\" % [minutes, seconds]
+	countdown_label.text = time_text
+	
+	# Change color based on remaining time
+	if current_time <= 10:
+		countdown_label.modulate = Color.RED  # Red for last 10 seconds
+	elif current_time <= 30:
+		countdown_label.modulate = Color.ORANGE  # Orange for last 30 seconds
+	elif current_time <= 60:
+		countdown_label.modulate = Color.YELLOW  # Yellow for last minute
+	else:
+		countdown_label.modulate = Color.WHITE  # White for normal time
+
+# Getter functions for other scripts to access timer info
+func get_time_remaining() -> float:
+	return current_time
+
+func get_time_remaining_formatted() -> String:
+	var minutes = int(current_time) / 60
+	var seconds = int(current_time) % 60
+	return \"%02d:%02d\" % [minutes, seconds]
+
+func is_running() -> bool:
+	return is_timer_running
+"
+
+[sub_resource type="FontFile" id="FontFile_qqp6x"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/33/0/ascent = 0.0
+cache/0/33/0/descent = 0.0
+cache/0/33/0/underline_position = 0.0
+cache/0/33/0/underline_thickness = 0.0
+cache/0/33/0/scale = 1.0
+cache/0/34/0/ascent = 0.0
+cache/0/34/0/descent = 0.0
+cache/0/34/0/underline_position = 0.0
+cache/0/34/0/underline_thickness = 0.0
+cache/0/34/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+
+[node name="Time_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+theme = ExtResource("1_ryvhp")
+script = SubResource("GDScript_qqp6x")
+
+[node name="TimingPanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 70.0
+theme_type_variation = &"Timecounter"
+
+[node name="CountdownLabel" type="Label" parent="TimingPanelContainer"]
+custom_minimum_size = Vector2(60, 52)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_qqp6x")
+theme_override_font_sizes/font_size = 36
+
+[node name="CountdownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.102
+
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmnretbhr64rv"]
+
+[ext_resource type="Script" uid="uid://dlr6fk0hfnyyx" path="res://scenes/win_scene.gd" id="1_7yt3q"]
+[ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/ui/DynaPuff-VariableFont_wdth,wght.ttf" id="1_aw8vk"]
+[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/ui/background.png" id="2_ecqtd"]
+[ext_resource type="Texture2D" uid="uid://bt1p3i2ta8tvi" path="res://scenes/ui/Tiles/Large tiles/Thick outline/tile_0001.png" id="3_ecqtd"]
+[ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="5_b6ng8"]
+
+[sub_resource type="Theme" id="Theme_7yt3q"]
+Button/fonts/font = ExtResource("1_aw8vk")
+
+[node name="Win scene" type="Node2D"]
+script = ExtResource("1_7yt3q")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1279.0
+offset_bottom = 789.0
+theme_override_colors/font_color = Color(0.773038, 0.324314, 0.448373, 1)
+theme_override_constants/line_spacing = 20
+theme_override_constants/paragraph_spacing = 20
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("1_aw8vk")
+theme_override_font_sizes/font_size = 60
+text = "Congratulations!
+ You've succeeded!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(641, 400)
+scale = Vector2(1.02627, 1.04799)
+texture = ExtResource("2_ecqtd")
+
+[node name="MAINMENU" type="Button" parent="."]
+offset_left = 526.0
+offset_top = 559.0
+offset_right = 790.0
+offset_bottom = 628.0
+theme = SubResource("Theme_7yt3q")
+theme_override_colors/font_color = Color(0.816606, 0.571577, 0.396075, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="MAINMENU"]
+z_index = -1
+position = Vector2(125, 35)
+scale = Vector2(10.5625, 3.15625)
+texture = ExtResource("3_ecqtd")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_b6ng8")
+autoplay = true
+
+[connection signal="pressed" from="MAINMENU" to="." method="_on_mainmenu_pressed"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dfaqgohiewhlm"]
 
-[ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://scenes/UI/main_menu.gd" id="1_yonvy"]
-[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/UI/background.png" id="2_5jstl"]
-[ext_resource type="Texture2D" uid="uid://bt1p3i2ta8tvi" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0001.png" id="2_e2p27"]
-[ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/UI/DynaPuff-VariableFont_wdth,wght.ttf" id="2_ngj32"]
+[ext_resource type="Script" uid="uid://5ympfo84r75e" path="res://scenes/ui/main_menu.gd" id="1_yonvy"]
+[ext_resource type="Texture2D" uid="uid://dlh657114vfwr" path="res://scenes/ui/background.png" id="2_5jstl"]
+[ext_resource type="Texture2D" uid="uid://bt1p3i2ta8tvi" path="res://scenes/ui/Tiles/Large tiles/Thick outline/tile_0001.png" id="2_e2p27"]
+[ext_resource type="FontFile" uid="uid://c6dbxjn4dhadi" path="res://scenes/ui/DynaPuff-VariableFont_wdth,wght.ttf" id="2_ngj32"]
 [ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="3_5jstl"]
-[ext_resource type="Texture2D" uid="uid://drard31pjfch1" path="res://scenes/UI/Tiles/Large tiles/Thick outline/tile_0002.png" id="3_ngj32"]
+[ext_resource type="Texture2D" uid="uid://drard31pjfch1" path="res://scenes/ui/Tiles/Large tiles/Thick outline/tile_0002.png" id="3_ngj32"]
 
 [sub_resource type="Theme" id="Theme_5d4ag"]
 Button/fonts/font = ExtResource("2_ngj32")

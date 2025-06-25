@@ -1,0 +1,28 @@
+[gd_scene load_steps=0 format=3 uid="uid://dbwhbw1we7wj5"]
+
+[node name="NavigationLink" type="Node2D"]
+
+[node name="NavigationLink2D4" type="NavigationLink2D" parent="."]
+position = Vector2(-1, 24)
+start_position = Vector2(256, 400)
+end_position = Vector2(256, 342)
+
+[node name="NavigationLink2D5" type="NavigationLink2D" parent="."]
+position = Vector2(-2, 28)
+start_position = Vector2(387, 397)
+end_position = Vector2(387, 336)
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="."]
+position = Vector2(-90, -159)
+start_position = Vector2(323, 350)
+end_position = Vector2(323, 298)
+
+[node name="NavigationLink2D2" type="NavigationLink2D" parent="."]
+position = Vector2(-89, -159)
+start_position = Vector2(609, 348)
+end_position = Vector2(609, 296)
+
+[node name="NavigationLink2D3" type="NavigationLink2D" parent="."]
+position = Vector2(-89, -157)
+start_position = Vector2(178, 347)
+end_position = Vector2(177, 295)

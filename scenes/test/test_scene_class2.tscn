@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://darjcoei4qkxg"]
+[gd_scene load_steps=20 format=4 uid="uid://darjcoei4qkxg"]
 
 [ext_resource type="Script" uid="uid://nxyjj8obru58" path="res://scripts/globals/base_script.gd" id="1_rpw4s"]
 [ext_resource type="TileSet" uid="uid://dfr7v1u8xj53d" path="res://Tilesets/game_tile_set.tres" id="1_ska2q"]
-[ext_resource type="PackedScene" uid="uid://bleh2ljpoagi0" path="res://scenes/objects/rottenFood/rotton_donut.tscn" id="3_a1756"]
+[ext_resource type="PackedScene" uid="uid://bleh2ljpoagi0" path="res://scenes/objects/rottenFood/rotten_donut.tscn" id="3_a1756"]
 [ext_resource type="Script" uid="uid://bqpe08lg2584m" path="res://scripts/globals/scene_trigger.gd" id="3_rpw4s"]
 [ext_resource type="PackedScene" uid="uid://bfd6ivautom8b" path="res://scenes/objects/freshFood/fresh_ice_cream.tscn" id="4_82j7b"]
 [ext_resource type="PackedScene" uid="uid://3lgobr2vypw5" path="res://scenes/objects/rottenFood/rotten_ice_cream.tscn" id="5_gm3sg"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dmqyl7hiv6h6u" path="res://scenes/objects/freshFood/fresh_coke.tscn" id="11_hk02d"]
 [ext_resource type="PackedScene" uid="uid://bxt6bfdgqn8i" path="res://scenes/objects/freshFood/fresh_donut.tscn" id="12_g1xyo"]
 [ext_resource type="AudioStream" uid="uid://dxvixevm7nvjj" path="res://assets/audio/music/Background music.mp3" id="14_82j7b"]
+[ext_resource type="PackedScene" uid="uid://ce4mjxobvsj5w" path="res://scenes/characters/NPC/npc_a.tscn" id="15_003au"]
+[ext_resource type="PackedScene" uid="uid://bxm331uysbcfl" path="res://scenes/characters/NPC/npc_b.tscn" id="16_quhg7"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_anejm"]
 scenes/1/scene = ExtResource("3_a1756")
@@ -26,6 +28,7 @@ scenes/7/scene = ExtResource("10_sywwi")
 scenes/8/scene = ExtResource("11_hk02d")
 scenes/9/scene = ExtResource("12_g1xyo")
 scenes/10/scene = ExtResource("4_82j7b")
+scenes/11/scene = ExtResource("3_a1756")
 
 [sub_resource type="TileSet" id="TileSet_rihgl"]
 sources/0 = SubResource("TileSetScenesCollectionSource_anejm")
@@ -51,7 +54,7 @@ tile_map_data = PackedByteArray("AAAPAAEABAAAAAAAAgA=")
 tile_set = ExtResource("1_ska2q")
 
 [node name="Food" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAAWAAgAAAAAAAAAAQA0AAkAAAAAAAAAAQAnABIAAAAAAAAAAQAMABIAAAAAAAAAAQAnABYAAAAAAAAAAQANAC0AAAAAAAAAAQAVAC0AAAAAAAAAAQAFACcAAAAAAAAAAgAUACcAAAAAAAAAAgAcAB8AAAAAAAAAAgAlACIAAAAAAAAAAgArACIAAAAAAAAAAgBCACkAAAAAAAAAAgAPACcAAAAAAAAAAwAGABYAAAAAAAAAAwARABYAAAAAAAAAAwAkAB8AAAAAAAAABAAFABAAAAAAAAAABgARAA4AAAAAAAAABgArABYAAAAAAAAABgAcABcAAAAAAAAABgAXABcAAAAAAAAABgAXAB8AAAAAAAAABgAvAB8AAAAAAAAABgBCABoAAAAAAAAABgBCACAAAAAAAAAABgAzABYAAAAAAAAABgAXACMAAAAAAAAABwAuABAAAAAAAAAABwA0AA8AAAAAAAAABwA7ABcAAAAAAAAABwALABAAAAAAAAAABwAfAAgAAAAAAAAABwA6AAYAAAAAAAAABwBBAAsAAAAAAAAABwA5AAoAAAAAAAAACAAGAC8AAAAAAAAACAAEAC0AAAAAAAAACAANACsAAAAAAAAACQALACcAAAAAAAAACQAeAB8AAAAAAAAACQAcABsAAAAAAAAACQAMABgAAAAAAAAACQALABQAAAAAAAAACQANADEAAAAAAAAACgALAC8AAAAAAAAACgAVADEAAAAAAAAACgApABoAAAAAAAAACgA1AAYAAAAAAAAACgBBAAcAAAAAAAAACgA=")
+tile_map_data = PackedByteArray("AAAWAAgAAAAAAAAAAQA0AAkAAAAAAAAAAQAnABIAAAAAAAAAAQAMABIAAAAAAAAAAQAnABYAAAAAAAAAAQANAC0AAAAAAAAAAQAVAC0AAAAAAAAAAQAFACcAAAAAAAAAAgAUACcAAAAAAAAAAgAcAB8AAAAAAAAAAgAlACIAAAAAAAAAAgArACIAAAAAAAAAAgBCACkAAAAAAAAAAgAPACcAAAAAAAAAAwAGABYAAAAAAAAAAwARABYAAAAAAAAAAwAkAB8AAAAAAAAABAAFABAAAAAAAAAABgARAA4AAAAAAAAABgArABYAAAAAAAAABgAcABcAAAAAAAAABgAXABcAAAAAAAAABgAXAB8AAAAAAAAABgAvAB8AAAAAAAAABgBCABoAAAAAAAAABgBCACAAAAAAAAAABgAzABYAAAAAAAAABgAXACMAAAAAAAAABwAuABAAAAAAAAAABwA0AA8AAAAAAAAABwA7ABcAAAAAAAAABwALABAAAAAAAAAABwAfAAgAAAAAAAAABwA6AAYAAAAAAAAABwBBAAsAAAAAAAAABwA5AAoAAAAAAAAACAAGAC8AAAAAAAAACAAEAC0AAAAAAAAACAANACsAAAAAAAAACQALACcAAAAAAAAACQAeAB8AAAAAAAAACQAcABsAAAAAAAAACQAMABgAAAAAAAAACQALABQAAAAAAAAACQANADEAAAAAAAAACgALAC8AAAAAAAAACgAVADEAAAAAAAAACgApABoAAAAAAAAACgA1AAYAAAAAAAAACgBBAAcAAAAAAAAACgA4ABkAAAAAAAAACQA3ABUAAAAAAAAABAAiABUAAAAAAAAABAA=")
 tile_set = SubResource("TileSet_rihgl")
 
 [node name="SceneTrigger" type="Area2D" parent="GameTileMap"]
@@ -74,5 +77,11 @@ position = Vector2(1088, 279)
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_82j7b")
 autoplay = true
+
+[node name="NPC_A" parent="." instance=ExtResource("15_003au")]
+position = Vector2(435, 298)
+
+[node name="NPC_B" parent="." instance=ExtResource("16_quhg7")]
+position = Vector2(542, 439)
 
 [connection signal="body_entered" from="GameTileMap/SceneTrigger" to="GameTileMap/SceneTrigger" method="_on_body_entered"]

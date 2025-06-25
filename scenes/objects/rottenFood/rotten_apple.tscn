@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://slkvvj52r3t"]
 
 [ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_obb17"]
-[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/game/objects/rotton_food-removebg-preview.png" id="1_xdeqa"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="1_xdeqa"]
 [ext_resource type="Script" uid="uid://xc6ctgtn656p" path="res://scenes/objects/rottenFood/rotten_apple.gd" id="2_obb17"]
 [ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="2_s3co0"]
 [ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="3_obb17"]
@@ -41,7 +41,7 @@ debug_color = Color(0.24138, 0.506892, 1, 0.42)
 
 [node name="HurtComponent" parent="." instance=ExtResource("3_obb17")]
 material = SubResource("ShaderMaterial_rt2w0")
-tool = 2
+tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 material = SubResource("ShaderMaterial_rt2w0")

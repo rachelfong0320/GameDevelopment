@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5t4os738bhxs"
-path="res://.godot/imported/rotton_food-removebg-preview.png-468903ac7171b818ae0c9f049b73e013.ctex"
+uid="uid://bpk23pg4w1cwv"
+path="res://.godot/imported/emotes.png-353d1f16fc182ce390b19fd75334d9a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/objects/rotton_food-removebg-preview.png"
-dest_files=["res://.godot/imported/rotton_food-removebg-preview.png-468903ac7171b818ae0c9f049b73e013.ctex"]
+source_file="res://assets/ui/emotes.png"
+dest_files=["res://.godot/imported/emotes.png-353d1f16fc182ce390b19fd75334d9a9.ctex"]
 
 [params]
 
