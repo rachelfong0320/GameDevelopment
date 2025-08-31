@@ -4,4 +4,3 @@
 
 [node name="Normal speed timer" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_tnghy")
-bus = &"SFX"

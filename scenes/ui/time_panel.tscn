@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bu8uqt85i6gnw"]
 
-[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_ryvhp"]
+[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/UI/game_ui_theme.tres" id="1_ryvhp"]
 
 [sub_resource type="GDScript" id="GDScript_qqp6x"]
 script/source = "# Time_panel.tscn script - Updated with win/lose logic
@@ -12,7 +12,7 @@ extends Control
 @onready var countdown_timer: Timer = $CountdownTimer
 
 # Timer properties
-@export var start_time: float = 1200.0  # 20 minutes in seconds (adjust as needed)
+@export var start_time: float = 600.0  # 10 minutes in seconds (adjust as needed)
 var current_time: float
 var is_timer_running: bool = false
 

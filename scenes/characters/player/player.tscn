@@ -657,11 +657,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_djydg"]
-radius = 21.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djydg"]
+size = Vector2(14, 26.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ew6mj"]
-radius = 3.0
+radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 10
@@ -677,12 +677,12 @@ autoplay = "idle_front"
 current_tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
-position = Vector2(1, 24)
-shape = SubResource("CircleShape2D_djydg")
+position = Vector2(0, 14.75)
+shape = SubResource("RectangleShape2D_djydg")
 debug_color = Color(8.18223e-07, 0.646242, 0.241754, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_ew6mj")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]

@@ -24,4 +24,4 @@ func on_fresh_food_collected():
 	if time_panels.size() > 0:
 		var time_panel = time_panels[0]
 		if time_panel.has_method("subtract_time"):
-			time_panel.subtract_time(60.0)  # 1 minute penalty
+			time_panel.subtract_time(120.0)  # 2 minute penalty
