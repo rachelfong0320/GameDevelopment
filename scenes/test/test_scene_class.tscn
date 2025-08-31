@@ -170,24 +170,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -268.0
-offset_top = -558.0
-offset_right = 268.0
-offset_bottom = -36.0
+offset_left = -302.0
+offset_top = -722.0
+offset_right = 400.0
+offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_ucvh1")
 text = "🍕 Hey Ryan!
-The legendary FSKTM Feast got a little too legendary last night… Now the entire faculty looks like a battlefield of flying food and funky smells. Some places are still loaded with fresh, delicious snacks 🥗 (don’t even think about touching those — the students will riot!), but others have turned into rotten, mutant monstrosities 🧟‍♂️🍔 that are stinking up the place.
+Last night’s FSKTM Feast went wild — now the faculty’s a warzone of flying food and funky smells. Some snacks are still fresh and tasty 🥗 (don’t touch those, the students will riot!), but others have morphed into rotten, mutant monstrosities 🧟‍♂️🍔.
 
-⚔️ Your mission: Hunt down and collect every last piece of rotten food before the stench takes over FSKTM forever!
-⚠️ But beware: if you grab the fresh food by mistake, you’ll waste precious time — and the mess will only spread.
+⚔️ Your mission: Clear out the rotten food before the stink takes over! But careful — grab a fresh bite and you’ll lose precious time.
 
-🎯 Can you outsmart the spoiled snacks, rescue the faculty, and prove yourself as the ultimate FSKTM Cleanup Champion?
 The clock is ticking… 🕒
-Good luck, Ryan — the fate of fresh food rests in your hands! 🚀"
+Good luck, Ryan — the fate of FSKTM’s feast is in your hands! 🚀"
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="UI/TalkBox"]
