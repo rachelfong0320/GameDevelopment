@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_gpnhd"]
 [ext_resource type="Texture2D" uid="uid://chkr6th86l48e" path="res://assets/game/objects/fresh_food-removebg-preview.png" id="2_5nm8k"]
-[ext_resource type="Script" uid="uid://c5dadqcwyqv55" path="res://fresh_ice_cream.gd" id="3_8mnrv"]
+[ext_resource type="Script" uid="uid://c5dadqcwyqv55" path="res://scenes/objects/freshFood/fresh_ice_cream.gd" id="3_8mnrv"]
 [ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="4_gxyxk"]
 [ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="5_w38u8"]
 

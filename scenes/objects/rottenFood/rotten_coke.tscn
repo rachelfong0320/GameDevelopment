@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://daxrchfmphrmk"]
 
 [ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_bo8go"]
-[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="1_ihvwh"]
-[ext_resource type="Script" uid="uid://dpwe1ee7gdfcc" path="res://rotten_coke.gd" id="2_bo8go"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/ui/rotton_food-removebg-preview.png" id="1_ihvwh"]
+[ext_resource type="Script" uid="uid://dpwe1ee7gdfcc" path="res://scenes/objects/rottenFood/rotten_coke.gd" id="2_bo8go"]
 [ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="3_fn6ci"]
 [ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="4_q3sok"]
 

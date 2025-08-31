@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cm0wx6gyc7pa5"]
 
-[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/ui/game_ui_theme.tres" id="1_2yiqu"]
-[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://rotton_food-removebg-preview.png" id="2_17uwj"]
-[ext_resource type="Script" uid="uid://cpsl7cu7asxjs" path="res://scenes/ui/inventory_panel.gd" id="2_cvy6a"]
+[ext_resource type="Theme" uid="uid://bv2hb354ml3nt" path="res://scenes/UI/game_ui_theme.tres" id="1_2yiqu"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/ui/rotton_food-removebg-preview.png" id="2_17uwj"]
+[ext_resource type="Script" uid="uid://cpsl7cu7asxjs" path="res://scenes/UI/inventory_panel.gd" id="2_cvy6a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
 atlas = ExtResource("2_17uwj")
