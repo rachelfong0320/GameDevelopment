@@ -82,3 +82,8 @@ take={
 2d_physics/layer_4="triggers"
 2d_physics/layer_5="Tool"
 2d_physics/layer_6="Object"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

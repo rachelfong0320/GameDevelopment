@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://7xdb13th2sd4" path="res://scenes/objects/freshFood/fresh_burger.tscn" id="12_8rory"]
 [ext_resource type="PackedScene" uid="uid://qhqshjbxk11p" path="res://scenes/test/scene_trigger.tscn" id="13_78l8g"]
 [ext_resource type="PackedScene" uid="uid://coq2um3vuc37o" path="res://scenes/characters/player/player.tscn" id="14_0f5bb"]
-[ext_resource type="PackedScene" uid="uid://cm0wx6gyc7pa5" path="res://scenes/UI/inventory_panel.tscn" id="15_ivtf2"]
-[ext_resource type="PackedScene" uid="uid://bu8uqt85i6gnw" path="res://scenes/UI/time_panel.tscn" id="15_ysoe5"]
+[ext_resource type="PackedScene" uid="uid://cm0wx6gyc7pa5" path="res://scenes/ui/inventory_panel.tscn" id="15_ivtf2"]
+[ext_resource type="PackedScene" uid="uid://bu8uqt85i6gnw" path="res://scenes/ui/time_panel.tscn" id="15_ysoe5"]
 
 [sub_resource type="GDScript" id="GDScript_qqp6x"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://tpacy0msgeox"]
 
 [ext_resource type="Shader" uid="uid://dxf63j0hw1ac4" path="res://scenes/objects/freshFood/food_shaker.gdshader" id="1_qy1vy"]
-[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/ui/rotton_food-removebg-preview.png" id="2_bpy8l"]
+[ext_resource type="Texture2D" uid="uid://5t4os738bhxs" path="res://assets/game/objects/rotton_food-removebg-preview.png" id="2_bpy8l"]
 [ext_resource type="Script" uid="uid://cycvk376s2ucs" path="res://scenes/objects/rottenFood/rotten_burger.gd" id="3_pwmru"]
 [ext_resource type="PackedScene" uid="uid://rcvxy3gvn0ox" path="res://scenes/components/damage_component.tscn" id="4_7enan"]
 [ext_resource type="PackedScene" uid="uid://b4ou3qciw6eob" path="res://scenes/components/hurt_component.tscn" id="5_ioamb"]
